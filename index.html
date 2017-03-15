@@ -1,92 +1,460 @@
 <!doctype html>
 <html class="no-js" lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Manual | xZoom jQuery Zoom Gallery Plugin</title>
-    <link rel="stylesheet" href="docs/css/normalize.css" />
-    <link rel="stylesheet" href="docs/css/foundation.css" />
-    <link rel="stylesheet" href="docs/css/prism.css" />
-    <link rel="stylesheet" href="docs/css/manual.css" />
-    <script src="docs/js/vendor/modernizr.js"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+  <title>xZoom | jQuery Zoom Gallery plugin</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/foundation.css" />
+  <link rel="stylesheet" href="css/custom.css" />
+  <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700|Ubuntu:300,400,500' rel='stylesheet' type='text/css' />
+  <script src="js/vendor/modernizr.js"></script>
+  <script src="js/vendor/jquery.js"></script>
+  <!-- rs plugin here -->
+  <script type="text/javascript" src="js/jquery.themepunch.tools.min.js"></script>
+  <script type="text/javascript" src="js/jquery.themepunch.revolution.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/settings.css" media="screen" />   
+  <!-- xzoom plugin here -->
+  <script type="text/javascript" src="source/js/xzoom.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="source/css/xzoom.css" media="all" /> 
+  <!-- hammer plugin here -->
+  <script type="text/javascript" src="hammer.js/js/jquery.hammer.min.js"></script>  
   <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <link type="text/css" rel="stylesheet" media="all" href="fancybox/source/jquery.fancybox.css" />
+  <link type="text/css" rel="stylesheet" media="all" href="magnific-popup/css/magnific-popup.css" />
+  <script type="text/javascript" src="fancybox/source/jquery.fancybox.js"></script>
+  <script type="text/javascript" src="magnific-popup/js/magnific-popup.js"></script>
+  <script type="text/javascript" src="js/setup.js"></script>
+  <!--[if IE]><link rel="shortcut icon" href="images/favicon.ico"><![endif]-->
+  <meta name="msapplication-TileColor" content="#ff9000">
+  <meta name="msapplication-TileImage" content="images/144_favicon.png">
+  <link rel="apple-touch-icon-precomposed" href="images/152_favicon.png">
+  <link rel="icon" href="images/96_favicon.png">
   </head>
-
   <body>
-  
-  <div class="container">
-    <div class="row">
-      <div class="large-12 column text-center"><a href="https://payalord.github.io/xZoom"><img src="docs/images/logo.png" alt=""></a></div>
-      <div class="large-12 column"><p><h2>Thank you for download xZoom jQuery Plugin</h2></p></div>
-      <div class="large-12 column">
-    If you're just downloaded xZoom please go to <a href="examples/index.html">examples</a> and <a href="docs/manual.html">manual</a> folder to find more information.
-      </div>
-    </div>
-    <section>
-      <div class="row">
-        <div class="large-12 column">
-          <h3>I would like a simple quick start. What do i need to do?</h3>
-          <span class="label alert round">Step 1</span>
-          <p>Copy the xzoom source files into your <code>project folder</code><br />
-          Copy the xzoom.min.js or xzoom.js files into javascript folder.<br />
-      Copy the xzoom.css file into your css folder, or copy the content of the xzoom.css file into your style sheet.<br />
-      Copy xloading.gif to your images folder.</p>
-          <span class="label alert round">Step 2</span>
-          <p>This goes into your site's Header Section:</p>
-          <p><pre><code class="language-markup">&lt;!-- get jQuery from the google apis --&gt;
-&lt;script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"&gt;&lt;/script&gt;
+   
+<!-- header start -->
+<div class="row">
+  <div class="contain-to-grid ">
+  <nav class="top-bar" data-topbar data-options="is_hover: true">
+    <ul class="title-area">
+      <li class="name">
+      <img data-interchange="[images/logo_small.png, (default)], [images/logo_big.png, (large)], [images/logo_big.png, (medium)], [images/logo_small.png, (portrait)]">
+      </li>
+      <li class="toggle-topbar menu-icon rad"><a href="#">Menu</a></li>
+    </ul>
+  <section class="top-bar-section">
+  <!-- right nav -->
+    <ul class="right">
+    <li class="divider"></li>
+    <li><a href="examples/index.html">Examples</a></li>
+    <li class="divider"></li>
+    <li class="has-dropdown"><a href="docs/index.html">Documentation</a>
+      <ul class="dropdown">
+        <li><a href="docs/index.html#started">Getting started</a></li>
+        <li><a href="docs/index.html#options">Options</a></li>
+        <li><a href="docs/index.html#specific">Image tag attributes</a></li>
+        <li><a href="docs/index.html#advanced">Advanced usage</a></li>
+        <li><a href="docs/index.html#events">Event methods</a></li>
+      </ul>
+    </li>
+    <li class="divider"></li>
+    <li class="has-form">
+      <a href="https://github.com/payalord/xZoom/archive/master.tar.gz" class="button greenbtn radius">Free Download</a>
+    </li>
+    <li class="divider"></li>
+    <li class="has-form">
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+      <input type="hidden" name="cmd" value="_s-xclick">
+      <input type="hidden" name="hosted_button_id" value="ASVGPLVSMYY6U">
+      <input type="submit" name="submit" value="DONATE" class="button radius" border="0">
+      <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+      </form>
+    </li>
+    </ul>
+  </section>
+  </nav> 
+  </div>
+</div>   
+<div class="gray_line"></div>
+<!-- header end -->
 
-&lt;!-- CSS STYLE--&gt;
-&lt;link rel="stylesheet" type="text/css" href="css/xzoom.css" media="all" /&gt;
+<!-- slider start -->
+<div class="bannercontainer">
+  <div class="banner" id="banner">
+    <ul>
+     <!-- slide one -->
+      <li class="bluebg" data-transition="fade" data-slotamount="7" data-masterspeed="700" data-saveperformance="on" data-title="Amazing Zoom Gallery">
+         <div class="tp-caption whitetitle sft tp-resizeme rs-parallaxlevel-0" 
+        data-x="10"
+        data-y="30" 
+        data-speed="300"
+        data-start="500"
+        data-easing="Power3.easeInOut"
+        data-splitin="lines"
+        data-splitout="none"
+        data-elementdelay="0.1"
+        data-endelementdelay="0.1">
+        New Amazing Expirience</div>
+         <div class="tp-caption whitetitle droidbold skewfromleftshort tp-resizeme rs-parallaxlevel-0" 
+        data-x="10"
+        data-y="80" 
+        data-speed="300"
+        data-start="1000"
+        data-easing="Power3.easeInOut"
+        data-splitin="words"
+        data-splitout="none"
+        data-elementdelay="0.1"
+        data-endelementdelay="0.1">with xZoom Gallery!</div>
+         <div class="tp-caption icon" data-x="18" data-y="148" data-speed="500" data-start="1200"><i class="fa fa-tablet"></i></div>
+         <div class="tp-caption whitetool" data-x="65" data-y="155" data-speed="500" data-start="1200">Responsive &amp; adaptive</div>
+         <div class="tp-caption icon" data-x="10" data-y="200" data-speed="500" data-start="1200"><i class="fa fa-rocket"></i></div>
+         <div class="tp-caption whitetool" data-x="65" data-y="210" data-speed="500" data-start="1200">Functionality that rocks</div>
+         <div class="tp-caption icon" data-x="10" data-y="255" data-speed="500" data-start="1200"><i class="fa fa-cloud"></i></div>
+         <div class="tp-caption whitetool" data-x="65" data-y="265" data-speed="500" data-start="1200">Lightweight code</div>
+         <div class="tp-caption icon" data-x="22" data-y="308" data-speed="500" data-start="1200"><i class="fa fa-flash"></i></div>
+         <div class="tp-caption whitetool" data-x="65" data-y="320" data-speed="500" data-start="1200">Compability with old browsers</div>
+         <div class="caption" data-x="22" data-y="380" data-speed="500" data-start="1200"><a href="#" class="btn big white">
+         <i class="fa fa-caret-down"></i> Learn More</a></div>
+         <div class="tp-caption"
+        data-x="465"
+        data-y="36" 
+        data-speed="700"
+        data-start="1200">
+         <img src="images/coloredbg.png" alt="" data-lazyload="images/slides/01_slide_dekstop_loop.png"></div>           
+      </li>
+     <!-- slide two -->
+      <li class="greenbg" data-transition="fade" data-slotamount="7" data-masterspeed="700" data-saveperformance="on" data-title="True responsive support">
+         <div class="tp-caption whitetitle droidbold sft tp-resizeme rs-parallaxlevel-0" 
+        data-x="10"
+        data-y="30" 
+        data-speed="300"
+        data-start="500"
+        data-easing="Power3.easeInOut"
+        data-splitin="lines"
+        data-splitout="none"
+        data-elementdelay="0.1"
+        data-endelementdelay="0.1">
+        Adaptive &amp; Responsive?</div>
+         <div class="tp-caption whitetitle skewfromleftshort tp-resizeme rs-parallaxlevel-0" 
+        data-x="10"
+        data-y="80" 
+        data-speed="300"
+        data-start="1000"
+        data-easing="Power3.easeInOut"
+        data-splitin="lines"
+        data-splitout="none"
+        data-elementdelay="0.2"
+        data-endelementdelay="0.2">Yes, and more than</div>
+         <div class="tp-caption whitetitle skewfromleftshort tp-resizeme rs-parallaxlevel-0" 
+        data-x="10"
+        data-y="130" 
+        data-speed="300"
+        data-start="1000"
+        data-easing="Power3.easeInOut"
+        data-splitin="lines"
+        data-splitout="none"
+        data-elementdelay="0.2"
+        data-endelementdelay="0.2">you think!</div>       
+         <div class="tp-caption icon" data-x="18" data-y="195" data-speed="500" data-start="1200"><i class="fa fa-check"></i></div>
+         <div class="tp-caption whitetool" data-x="65" data-y="205" data-speed="500" data-start="1200">So easy to use</div>
+         <div class="tp-caption icon" data-x="18" data-y="250" data-speed="500" data-start="1200"><i class="fa fa-check"></i></div>
+         <div class="tp-caption whitetool" data-x="65" data-y="260" data-speed="500" data-start="1200">Tap and double tap support</div>
+         <div class="tp-caption icon" data-x="18" data-y="305" data-speed="500" data-start="1200"><i class="fa fa-check"></i></div>
+         <div class="tp-caption whitetool" data-x="65" data-y="315" data-speed="500" data-start="1200">Implemented with HammerJS</div> 
+         <div class="caption" data-x="22" data-y="380" data-speed="500" data-start="1200"><a href="#" class="btn big white">
+         <i class="fa fa-caret-down"></i> Learn More</a></div>
+         <div class="tp-caption"
+        data-x="465"
+        data-y="36" 
+        data-speed="700"
+        data-start="1200">
+         <img src="images/coloredbg.png" alt="" data-lazyload="images/slides/02_slide_responsive.png"></div>           
+      </li>
+    </ul>   
+  </div>
+</div>
+<!-- slider end -->
 
-&lt;!-- XZOOM JQUERY PLUGIN  --&gt;
-&lt;script type="text/javascript" src="js/xzoom.min.js"&gt;&lt;/script&gt;</code></pre>
-          </p>    
-          <div class="line"><span class="label alert round">Step 3</span>
-          <p>Add the xzoom markup to your HTML document:</p>
-          <p>
-            <pre><code class="language-markup">&lt;img class="xzoom" src="path/to/preview_image_01.jpg" xoriginal="path/to/original_image_01.jpg" /&gt;
-
-&lt;div class="xzoom-thumbs"&gt;
-  &lt;a href="path/to/original_image_01.jpg"&gt;
-    &lt;img class="xzoom-gallery" width="80" src="path/to/thumbs_image_01.jpg"  xpreview="path/to/preview_image_01.jpg"&gt;
-  &lt;/a&gt;
-  &lt;a href="path/to/original_image_02.jpg"&gt;
-    &lt;img class="xzoom-gallery" width="80" src="path/to/preview_image_02.jpg"&gt;
-  &lt;/a&gt;
-  &lt;a href="path/to/original_image_03.jpg"&gt;
-    &lt;img class="xzoom-gallery" width="80" src="path/to/preview_image_03.jpg"&gt;
-  &lt;/a&gt;
-  &lt;a href="path/to/original_image_04.jpg"&gt;
-    &lt;img class="xzoom-gallery" width="80" src="path/to/preview_image_04.jpg"&gt;
-  &lt;/a&gt;
-&lt;/div&gt;</code></pre>
-          </p>
-      <p>You can add more or less images to xzoom, this example shows how it works with 4 images.</p>
+<!-- demo start -->
+<div class="row">
+  <div class="large-12 column text-center">
+    <p><h1>Demo</h1></p>
+  </div>
+  <div class="large-12 column">
+    <ul class="tabs" data-tab>
+      <li class="tab-title active"><a href="#default">Standard</a></li>
+      <li class="tab-title"><a href="#output">Output window</a></li>
+      <li class="tab-title"><a href="#lens">Lens options</a></li>
+      <li class="tab-title"><a href="#fancy">With FancyBox</a></li>
+      <li class="tab-title"><a href="#magnific">With Magnific Pop-up</a></li>
+    </ul>
+    <div class="tabs-content">
+      <div class="content active" id="default">
+        <div class="row">
+          <div class="large-5 column">
+            <div class="xzoom-container">
+              <img class="xzoom" src="images/gallery/preview/01_b_car.jpg" xoriginal="images/gallery/original/01_b_car.jpg" />
+              <div class="xzoom-thumbs">
+              <a href="images/gallery/original/01_b_car.jpg"><img class="xzoom-gallery" width="80" src="images/gallery/thumbs/01_b_car.jpg"  xpreview="images/gallery/preview/01_b_car.jpg" title="The description goes here"></a>
+              <a href="images/gallery/original/02_o_car.jpg"><img class="xzoom-gallery" width="80" src="images/gallery/preview/02_o_car.jpg" title="The description goes here"></a>
+              <a href="images/gallery/original/03_r_car.jpg"><img class="xzoom-gallery" width="80" src="images/gallery/preview/03_r_car.jpg" title="The description goes here"></a>
+              <a href="images/gallery/original/04_g_car.jpg"><img class="xzoom-gallery" width="80" src="images/gallery/preview/04_g_car.jpg" title="The description goes here"></a>
+              </div>
+            </div>            
           </div>
-          <div class="line"><span class="label alert round">Step 4</span>
-          <p>Initialize the plugin in "document ready" section:</p>
-          <p>
-            <pre><code class="language-javascript">/* calling script */
-$(".xzoom").xzoom({tint: '#333', Xoffset: 15});
-            </code></pre>
-          </p>
-          </div>                        
-        </div>       
-      </div>
-    </section> 
-    <section>
-    <div class="row">
-      <div class="large-12 column">
-        <div class="line">
-          <p>All new features and last updated docs you can find here: <a href="https://github.com/payalord/xZoom">github.com/payalord/xZoom</a></p>
+          <div class="large-7 column">
+          <h4>xZoom gallery with default options</h4> 
+          <p>All needed features are turned on by default, with adaptive and responsive support. Please, <a href="#">read the manual</a> to see all options.</p>  
+          <p>Mouse over the image, to see zoomed image window.</p>
+          <p>User mouse scroll to increase or decrease image in zoom window.</p>
+          </div>
         </div>
       </div>
-    </div>  
-    </section>       
+      <div class="content" id="output">
+        <div class="row">
+          <div class="large-5 column">
+            <div class="xzoom-container">
+              <img class="xzoom2" src="images/gallery/preview/01_b_car.jpg" xoriginal="images/gallery/original/01_b_car.jpg" />
+              <div class="xzoom-thumbs">
+              <a href="images/gallery/original/01_b_car.jpg"><img class="xzoom-gallery2" width="80" src="images/gallery/thumbs/01_b_car.jpg"  xpreview="images/gallery/preview/01_b_car.jpg" title="The description goes here"></a>
+              <a href="images/gallery/original/02_o_car.jpg"><img class="xzoom-gallery2" width="80" src="images/gallery/preview/02_o_car.jpg" title="The description goes here"></a>
+              <a href="images/gallery/original/03_r_car.jpg"><img class="xzoom-gallery2" width="80" src="images/gallery/preview/03_r_car.jpg" title="The description goes here"></a>
+              <a href="images/gallery/original/04_g_car.jpg"><img class="xzoom-gallery2" width="80" src="images/gallery/preview/04_g_car.jpg" title="The description goes here"></a>
+              </div>
+            </div>
+          </div>
+          <div class="large-7 column">
+          <h4>xZoom positioned window</h4>  
+          <p>Zoomed window can be positioned anywhere on page, just identify div with a custom name. Please, <a href="#">read the manual</a> to see all options.</p>  
+          <p>Mouse over the image, to see positioned zoomed image window.</p>
+          <div id="xzoom2-id" style="float: left; width: 200px; height: 200px;"></div>
+          </div>
+        </div>
+      </div>
+      <div class="content" id="lens">
+        <div class="row">
+          <div class="large-5 column">
+            <div class="xzoom-container">
+              <img class="xzoom3" src="images/gallery/preview/01_b_car.jpg" xoriginal="images/gallery/original/01_b_car.jpg" />
+              <div class="xzoom-thumbs">
+              <a href="images/gallery/original/01_b_car.jpg"><img class="xzoom-gallery3" width="80" src="images/gallery/thumbs/01_b_car.jpg"  xpreview="images/gallery/preview/01_b_car.jpg" title="The description goes here"></a>
+              <a href="images/gallery/original/02_o_car.jpg"><img class="xzoom-gallery3" width="80" src="images/gallery/preview/02_o_car.jpg" title="The description goes here"></a>
+              <a href="images/gallery/original/03_r_car.jpg"><img class="xzoom-gallery3" width="80" src="images/gallery/preview/03_r_car.jpg" title="The description goes here"></a>
+              <a href="images/gallery/original/04_g_car.jpg"><img class="xzoom-gallery3" width="80" src="images/gallery/preview/04_g_car.jpg" title="The description goes here"></a>
+              </div>
+            </div>            
+          </div>
+          <div class="large-7 column">
+          <h4>xZoom lens option</h4>  
+          <p>You can change size, color, shape of lens. Please, <a href="#">read the manual</a> to see all options.</p> 
+          <p>Mouse over the image, to see zoomed image window.</p>
+          <p>User mouse scroll to increase or decrease image in zoom window.</p>
+          </div>
+        </div>
+      </div>
+      <div class="content" id="fancy">
+        <div class="row">
+          <div class="large-5 column">
+            <div class="xzoom-container">
+              <img class="xzoom4" id="xzoom-fancy" src="images/gallery/preview/01_b_car.jpg" xoriginal="images/gallery/original/01_b_car.jpg" />
+              <div class="xzoom-thumbs">
+              <a href="images/gallery/original/01_b_car.jpg"><img class="xzoom-gallery4" width="80" src="images/gallery/thumbs/01_b_car.jpg"  xpreview="images/gallery/preview/01_b_car.jpg" title="The description goes here"></a>
+              <a href="images/gallery/original/02_o_car.jpg"><img class="xzoom-gallery4" width="80" src="images/gallery/preview/02_o_car.jpg" title="The description goes here"></a>
+              <a href="images/gallery/original/03_r_car.jpg"><img class="xzoom-gallery4" width="80" src="images/gallery/preview/03_r_car.jpg" title="The description goes here"></a>
+              <a href="images/gallery/original/04_g_car.jpg"><img class="xzoom-gallery4" width="80" src="images/gallery/preview/04_g_car.jpg" title="The description goes here"></a>
+              </div>
+            </div>            
+          </div>
+          <div class="large-7 column">
+          <h4>xZoom with FancyBox</h4>  
+          <p>Very useful feature for retail stores, FancyBox is working right from the box with xZoom gallry plugin, present all images to your customers! Please, <a href="#">read the manual</a>.</p> 
+          <p>Mouse over the image, to see zoomed image window.</p>
+          <p>User mouse scroll to increase or decrease image in zoom window.</p>
+          </div>
+        </div>
+      </div>
+      <div class="content" id="magnific">
+        <div class="row">
+          <div class="large-5 column">
+            <div class="xzoom-container">
+              <img class="xzoom5" id="xzoom-magnific" src="images/gallery/preview/01_b_car.jpg" xoriginal="images/gallery/original/01_b_car.jpg" />
+              <div class="xzoom-thumbs">
+              <a href="images/gallery/original/01_b_car.jpg"><img class="xzoom-gallery5" width="80" src="images/gallery/thumbs/01_b_car.jpg"  xpreview="images/gallery/preview/01_b_car.jpg" title="The description goes here"></a>
+              <a href="images/gallery/original/02_o_car.jpg"><img class="xzoom-gallery5" width="80" src="images/gallery/preview/02_o_car.jpg" title="The description goes here"></a>
+              <a href="images/gallery/original/03_r_car.jpg"><img class="xzoom-gallery5" width="80" src="images/gallery/preview/03_r_car.jpg" title="The description goes here"></a>
+              <a href="images/gallery/original/04_g_car.jpg"><img class="xzoom-gallery5" width="80" src="images/gallery/preview/04_g_car.jpg" title="The description goes here"></a>
+              </div>
+            </div>            
+          </div>
+          <div class="large-7 column">
+          <h4>xZoom with Magnific Pop-Up</h4> 
+          <p>Magnific Pop-Up also works right from the box with xZoom gallery plugin. Please, <a href="#">read the manual</a>.</p>  
+          <p>Mouse over the image, to see zoomed image window.</p>
+          <p>User mouse scroll to increase or decrease image in zoom window.</p>
+          </div>
+        </div>
+      </div>      
+    </div>    
   </div>
-    <script src="docs/js/vendor/jquery.js"></script>
-    <script src="docs/js/foundation.min.js"></script>
-    <script src="docs/js/vendor/prism.js"></script>
+</div>  
+<!-- demo end -->
+<!-- features start -->
+<div class="graybg">
+  <div class="row">
+    <div class="large-12 column text-center">
+      <p><h1>Features</h1></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-4 column fe">
+      <span class="fa-stack fa-3x left">
+        <i class="fa fa-circle fa-stack-2x circle"></i>
+        <i class="fa fa-magic fa-stack-1x icon"></i>
+      </span>
+      <p class="fetitle">Functionality</p>
+      <p>A lof of options, effects and easy to use and customize</p>
+    </div>
+    <div class="large-4 column fe">
+      <span class="fa-stack fa-3x left">
+        <i class="fa fa-circle fa-stack-2x circle"></i>
+        <i class="fa fa-cloud fa-stack-1x icon"></i>
+      </span>
+      <p class="fetitle">Lightweight code</p>
+      <p>Our code is so light, minified version just only ~13 kb</p>
+    </div>
+    <div class="large-4 column fe">
+      <span class="fa-stack fa-3x left">
+        <i class="fa fa-circle fa-stack-2x circle"></i>
+        <i class="fa fa-image fa-stack-1x icon"></i>
+      </span>
+      <p class="fetitle">Image modes</p>
+      <p>You can load low and high res images separately</p>
+    </div>          
+  </div>
+  <div class="row">
+    <div class="large-4 column fe">
+      <span class="fa-stack fa-3x left">
+        <i class="fa fa-circle fa-stack-2x circle"></i>
+        <i class="fa fa-check fa-stack-1x icon"></i>
+      </span>
+      <p class="fetitle">Modal windows</p>
+      <p>You can use FancyBox or Magnific Pop-up with xZoom</p>
+    </div>
+    <div class="large-4 column fe">
+      <span class="fa-stack fa-3x left">
+        <i class="fa fa-circle fa-stack-2x circle"></i>
+        <i class="fa fa-expand fa-stack-1x icon"></i>
+      </span>
+      <p class="fetitle">Adaptive</p>
+      <p>Must have feature for mobile devices</p>
+    </div>
+    <div class="large-4 column fe">
+      <span class="fa-stack fa-3x left">
+        <i class="fa fa-circle fa-stack-2x circle"></i>
+        <i class="fa fa-mobile-phone fa-stack-1x icon"></i>
+      </span>
+      <p class="fetitle">Responsive</p>
+      <p>Tap and double tap support for touchscreen devices</p>
+    </div>          
+  </div>
+  <div class="row">
+    <div class="large-4 column fe">
+      <span class="fa-stack fa-3x left">
+        <i class="fa fa-circle fa-stack-2x circle"></i>
+        <i class="fa fa-trophy fa-stack-1x icon"></i>
+      </span>
+      <p class="fetitle">Browser support</p>
+      <p>IE6+, Chrome, FireFox, Opera, Safari, Android, iOS </p>
+    </div>
+    <div class="large-4 column fe">
+      <span class="fa-stack fa-3x left">
+        <i class="fa fa-circle fa-stack-2x circle"></i>
+        <i class="fa fa-gear fa-stack-1x icon"></i>
+      </span>
+      <p class="fetitle">xZoom API</p>
+      <p>Write your own custom features with xZoom developer's API</p>
+    </div>
+    <div class="large-4 column fe">
+      <span class="fa-stack fa-3x left">
+        <i class="fa fa-circle fa-stack-2x circle"></i>
+        <i class="fa fa-th fa-stack-1x icon"></i>
+      </span>
+      <p class="fetitle">Unlimited zooms</p>
+      <p>Unlimited number of zoom galleries on a single page</p>
+    </div>          
+  </div>
+</div>
+<!-- features end -->
+<!-- licensing start -->
+<div class="row">
+  <div class="large-12 column text-center">
+    <p><h1>License</h1></p>
+  </div>
+  <div class="large-12 column lic">
+    <span class="fa-stack fa-4x left">
+      <i class="fa fa-square fa-stack-2x sqgreen"></i>
+      <i class="fa fa-file fa-stack-1x fa-inverse"></i>
+    </span>
+    <p class="lititle">Apache License 2.0</p>
+    <p>You can do what you like with the software, as long as you include the required notices. This permissive license contains a patent license from the contributors of the code.</p>
+    <p> - <a href="https://tldrlegal.com/license/apache-license-2.0-(apache-2.0)">tldrlegal.com</a></p>
+  </div>
+  <div class="large-12 column text-center">
+    <a href="https://github.com/payalord/xZoom/archive/master.tar.gz" class="button greenbtn radius large">Free Download</a>
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+    <input type="hidden" name="cmd" value="_s-xclick">
+    <input type="hidden" name="hosted_button_id" value="ASVGPLVSMYY6U">
+    <input type="submit" name="submit" value="DONATE" class="button radius large" border="0">
+    <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+    </form>
+  </div>
+
+</div>
+<!-- licensing end -->
+<!-- footer start -->
+<div class="footer">
+  <div class="row">
+    <div class="large-12 column text-center">&copy; 2013 <a href="https://github.com/payalord">Payalord</a> &amp; <a href="https://dribbble.com/elmanvebs">Elman Vebs</a>. All rights reserved.</div>
+  </div>
+</div>
+<!-- footer end -->
+<script type="text/javascript" src="js/foundation.min.js"></script>
+<script type="text/javascript">
+jQuery(document).foundation('reflow');
+jQuery(document).ready(function() {
+  jQuery('#banner').show().revolution({
+    delay:9000,
+    startheight:500,
+    fullWidth:"on",
+    forceFullWidth: "off",
+    fullScreen:"off",                                   
+    hideBulletsOnMobile: "on",
+    hideArrowsOnMobile:"off",
+    startWithSlide:0,
+    navigationType:"bullet",
+    navigationArrows:"solo",
+        
+    touchenabled:"on",
+    swipe_velocity:"0.7",
+    swipe_max_touches:"1",
+    swipe_min_touches:"1",
+    hideTimerBar: "on",
+    lazyLoad:"on",
+    parallaxLevels:[7,4,3,2,5,4,3,2,1,0]
+  });
+});
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-48989648-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
   </body>
 </html>
