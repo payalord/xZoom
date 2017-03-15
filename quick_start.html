@@ -1,0 +1,92 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manual | xZoom jQuery Zoom Gallery Plugin</title>
+    <link rel="stylesheet" href="docs/css/normalize.css" />
+    <link rel="stylesheet" href="docs/css/foundation.css" />
+    <link rel="stylesheet" href="docs/css/prism.css" />
+    <link rel="stylesheet" href="docs/css/manual.css" />
+    <script src="docs/js/vendor/modernizr.js"></script>
+  <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  </head>
+
+  <body>
+  
+  <div class="container">
+    <div class="row">
+      <div class="large-12 column text-center"><a href="https://payalord.github.io/xZoom"><img src="docs/images/logo.png" alt=""></a></div>
+      <div class="large-12 column"><p><h2>Thank you for download xZoom jQuery Plugin</h2></p></div>
+      <div class="large-12 column">
+    If you're just downloaded xZoom please go to <a href="examples/index.html">examples</a> and <a href="docs/manual.html">manual</a> folder to find more information.
+      </div>
+    </div>
+    <section>
+      <div class="row">
+        <div class="large-12 column">
+          <h3>I would like a simple quick start. What do i need to do?</h3>
+          <span class="label alert round">Step 1</span>
+          <p>Copy the xzoom source files into your <code>project folder</code><br />
+          Copy the xzoom.min.js or xzoom.js files into javascript folder.<br />
+      Copy the xzoom.css file into your css folder, or copy the content of the xzoom.css file into your style sheet.<br />
+      Copy xloading.gif to your images folder.</p>
+          <span class="label alert round">Step 2</span>
+          <p>This goes into your site's Header Section:</p>
+          <p><pre><code class="language-markup">&lt;!-- get jQuery from the google apis --&gt;
+&lt;script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"&gt;&lt;/script&gt;
+
+&lt;!-- CSS STYLE--&gt;
+&lt;link rel="stylesheet" type="text/css" href="css/xzoom.css" media="all" /&gt;
+
+&lt;!-- XZOOM JQUERY PLUGIN  --&gt;
+&lt;script type="text/javascript" src="js/xzoom.min.js"&gt;&lt;/script&gt;</code></pre>
+          </p>    
+          <div class="line"><span class="label alert round">Step 3</span>
+          <p>Add the xzoom markup to your HTML document:</p>
+          <p>
+            <pre><code class="language-markup">&lt;img class="xzoom" src="path/to/preview_image_01.jpg" xoriginal="path/to/original_image_01.jpg" /&gt;
+
+&lt;div class="xzoom-thumbs"&gt;
+  &lt;a href="path/to/original_image_01.jpg"&gt;
+    &lt;img class="xzoom-gallery" width="80" src="path/to/thumbs_image_01.jpg"  xpreview="path/to/preview_image_01.jpg"&gt;
+  &lt;/a&gt;
+  &lt;a href="path/to/original_image_02.jpg"&gt;
+    &lt;img class="xzoom-gallery" width="80" src="path/to/preview_image_02.jpg"&gt;
+  &lt;/a&gt;
+  &lt;a href="path/to/original_image_03.jpg"&gt;
+    &lt;img class="xzoom-gallery" width="80" src="path/to/preview_image_03.jpg"&gt;
+  &lt;/a&gt;
+  &lt;a href="path/to/original_image_04.jpg"&gt;
+    &lt;img class="xzoom-gallery" width="80" src="path/to/preview_image_04.jpg"&gt;
+  &lt;/a&gt;
+&lt;/div&gt;</code></pre>
+          </p>
+      <p>You can add more or less images to xzoom, this example shows how it works with 4 images.</p>
+          </div>
+          <div class="line"><span class="label alert round">Step 4</span>
+          <p>Initialize the plugin in "document ready" section:</p>
+          <p>
+            <pre><code class="language-javascript">/* calling script */
+$(".xzoom").xzoom({tint: '#333', Xoffset: 15});
+            </code></pre>
+          </p>
+          </div>                        
+        </div>       
+      </div>
+    </section> 
+    <section>
+    <div class="row">
+      <div class="large-12 column">
+        <div class="line">
+          <p>All new features and last updated docs you can find here: <a href="https://github.com/payalord/xZoom">github.com/payalord/xZoom</a></p>
+        </div>
+      </div>
+    </div>  
+    </section>       
+  </div>
+    <script src="docs/js/vendor/jquery.js"></script>
+    <script src="docs/js/foundation.min.js"></script>
+    <script src="docs/js/vendor/prism.js"></script>
+  </body>
+</html>

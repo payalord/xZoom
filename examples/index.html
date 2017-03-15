@@ -1,0 +1,153 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demo | xZoom Jquery Zoom Gallery</title>
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="css/demo.css" />
+    <script src="js/vendor/modernizr.js"></script>
+    <script src="js/vendor/jquery.js"></script>
+  <!-- xzoom plugin here -->
+  <script type="text/javascript" src="../source/js/xzoom.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/xzoom.css" media="all" /> 
+  <!-- hammer plugin here -->
+  <script type="text/javascript" src="hammer.js/1.0.5/jquery.hammer.min.js"></script>  
+  <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <link type="text/css" rel="stylesheet" media="all" href="fancybox/source/jquery.fancybox.css" />
+  <link type="text/css" rel="stylesheet" media="all" href="magnific-popup/css/magnific-popup.css" />
+  <script type="text/javascript" src="fancybox/source/jquery.fancybox.js"></script>
+  <script type="text/javascript" src="magnific-popup/js/magnific-popup.js"></script>       
+  </head>
+
+  <body>
+  
+  <div class="container">
+    <div class="row">
+      <div class="large-12 column text-center"><a href="https://payalord.github.io/xZoom"><img src="images/logo.png" alt=""></a></div>
+      <div class="large-12 column"><p><h2>Demo</h2></p></div>
+      <div class="large-12 column">
+        <ul>
+          <li><a href="#default">Default options</a></li>
+          <li><a href="#output">Output window</a></li>
+          <li><a href="#lens">Lens options</a></li>
+          <li><a href="#fancy">With Fancy Box</a></li>
+          <li><a href="#magnific">With Magnific Pop-Up</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- default start -->
+    <section id="default" class="padding-top0">
+    <div class="row">
+      <div class="large-12 column"><h3>Default options</h3></div>
+      <div class="large-5 column">
+        <div class="xzoom-container">
+          <img class="xzoom" id="xzoom-default" src="images/gallery/preview/01_b_car.jpg" xoriginal="images/gallery/original/01_b_car.jpg" />
+          <div class="xzoom-thumbs">
+            <a href="images/gallery/original/01_b_car.jpg"><img class="xzoom-gallery" width="80" src="images/gallery/thumbs/01_b_car.jpg"  xpreview="images/gallery/preview/01_b_car.jpg" title="The description goes here"></a>
+            <a href="images/gallery/original/02_o_car.jpg"><img class="xzoom-gallery" width="80" src="images/gallery/preview/02_o_car.jpg" title="The description goes here"></a>
+            <a href="images/gallery/original/03_r_car.jpg"><img class="xzoom-gallery" width="80" src="images/gallery/preview/03_r_car.jpg" title="The description goes here"></a>
+            <a href="images/gallery/original/04_g_car.jpg"><img class="xzoom-gallery" width="80" src="images/gallery/preview/04_g_car.jpg" title="The description goes here"></a>
+          </div>
+        </div>        
+      </div>
+      <div class="large-7 column"></div>
+    </div>
+    </section>
+    <!-- default end -->
+
+    <!-- output window start -->
+    <section id="output">
+    <div class="row">
+      <div class="large-12 column"><h3>Output window</h3></div>
+      <div class="large-5 column">
+        <div class="xzoom-container">
+          <img class="xzoom2" src="images/gallery/preview/01_b_car.jpg" xoriginal="images/gallery/original/01_b_car.jpg" />
+            <div class="xzoom-thumbs">
+              <a href="images/gallery/original/01_b_car.jpg"><img class="xzoom-gallery2" width="80" src="images/gallery/thumbs/01_b_car.jpg"  xpreview="images/gallery/preview/01_b_car.jpg" title="The description goes here"></a>
+              <a href="images/gallery/original/02_o_car.jpg"><img class="xzoom-gallery2" width="80" src="images/gallery/preview/02_o_car.jpg" title="The description goes here"></a>
+              <a href="images/gallery/original/03_r_car.jpg"><img class="xzoom-gallery2" width="80" src="images/gallery/preview/03_r_car.jpg" title="The description goes here"></a>
+              <a href="images/gallery/original/04_g_car.jpg"><img class="xzoom-gallery2" width="80" src="images/gallery/preview/04_g_car.jpg" title="The description goes here"></a>
+            </div>
+        </div>        
+      </div>
+      <div class="large-7 column"><div id="xzoom2-id" style="float: right; width: 200px; height: 200px;"></div></div>
+    </div>
+    </section>   
+    <!-- output window end -->
+
+    <!-- lens options start -->
+    <section id="lens">
+    <div class="row">
+      <div class="large-12 column"><h3>Lens options</h3></div>
+      <div class="large-5 column">
+        <div class="xzoom-container">
+          <img class="xzoom3" src="images/gallery/preview/01_b_car.jpg" xoriginal="images/gallery/original/01_b_car.jpg" />
+          <div class="xzoom-thumbs">
+            <a href="images/gallery/original/01_b_car.jpg"><img class="xzoom-gallery3" width="80" src="images/gallery/thumbs/01_b_car.jpg"  xpreview="images/gallery/preview/01_b_car.jpg" title="The description goes here"></a>
+            <a href="images/gallery/original/02_o_car.jpg"><img class="xzoom-gallery3" width="80" src="images/gallery/preview/02_o_car.jpg" title="The description goes here"></a>
+            <a href="images/gallery/original/03_r_car.jpg"><img class="xzoom-gallery3" width="80" src="images/gallery/preview/03_r_car.jpg" title="The description goes here"></a>
+            <a href="images/gallery/original/04_g_car.jpg"><img class="xzoom-gallery3" width="80" src="images/gallery/preview/04_g_car.jpg" title="The description goes here"></a>
+          </div>
+        </div>        
+      </div>
+      <div class="large-7 column"></div>
+    </div>
+    </section>   
+    <!-- lens options end -->
+
+    <!-- fancy start -->
+    <section id="fancy">
+    <div class="row">
+      <div class="large-12 column"><h3>With Fancy Box</h3>Left click while zooming</div>
+      <div class="large-5 column">
+        <div class="xzoom-container">
+          <img class="xzoom4" id="xzoom-fancy" src="images/gallery/preview/01_b_car.jpg" xoriginal="images/gallery/original/01_b_car.jpg" />
+          <div class="xzoom-thumbs">
+            <a href="images/gallery/original/01_b_car.jpg"><img class="xzoom-gallery4" width="80" src="images/gallery/thumbs/01_b_car.jpg"  xpreview="images/gallery/preview/01_b_car.jpg" title="The description goes here"></a>
+            <a href="images/gallery/original/02_o_car.jpg"><img class="xzoom-gallery4" width="80" src="images/gallery/preview/02_o_car.jpg" title="The description goes here"></a>
+            <a href="images/gallery/original/03_r_car.jpg"><img class="xzoom-gallery4" width="80" src="images/gallery/preview/03_r_car.jpg" title="The description goes here"></a>
+            <a href="images/gallery/original/04_g_car.jpg"><img class="xzoom-gallery4" width="80" src="images/gallery/preview/04_g_car.jpg" title="The description goes here"></a>
+          </div>
+        </div>          
+      </div>
+      <div class="large-7 column"></div>
+    </div>
+    </section>   
+    <!-- fancy end -->
+
+    <!-- magnific start -->
+    <section id="magnific">
+    <div class="row">
+      <div class="large-12 column"><h3>With Magnific Pop-up</h3>Left click while zooming</div>
+      <div class="large-5 column">
+        <div class="xzoom-container">
+          <img class="xzoom5" id="xzoom-magnific" src="images/gallery/preview/01_b_car.jpg" xoriginal="images/gallery/original/01_b_car.jpg" />
+          <div class="xzoom-thumbs">
+            <a href="images/gallery/original/01_b_car.jpg"><img class="xzoom-gallery5" width="80" src="images/gallery/thumbs/01_b_car.jpg"  xpreview="images/gallery/preview/01_b_car.jpg" title="The description goes here"></a>
+            <a href="images/gallery/original/02_o_car.jpg"><img class="xzoom-gallery5" width="80" src="images/gallery/preview/02_o_car.jpg" title="The description goes here"></a>
+            <a href="images/gallery/original/03_r_car.jpg"><img class="xzoom-gallery5" width="80" src="images/gallery/preview/03_r_car.jpg" title="The description goes here"></a>
+            <a href="images/gallery/original/04_g_car.jpg"><img class="xzoom-gallery5" width="80" src="images/gallery/preview/04_g_car.jpg" title="The description goes here"></a>
+          </div>
+        </div>        
+      </div>
+      <div class="large-7 column"></div>
+    </div>
+    </section>   
+    <!-- magnific end -->
+    <section>
+    <div class="row">
+      <div class="large-12 column">
+        <div class="line">
+          <p>All new features and last updated docs you can find here: <a href="https://github.com/payalord/xZoom">github.com/payalord/xZoom</a></p>
+        </div>
+      </div>
+    </div>  
+    </section> 
+  </div>
+    <script src="js/foundation.min.js"></script>
+    <script src="js/setup.js"></script>
+  </body>
+</html>

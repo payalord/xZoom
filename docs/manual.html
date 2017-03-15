@@ -1,0 +1,417 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manual | xZoom Jquery Zoom Gallery</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/foundation.css" />
+  <link rel="stylesheet" href="css/prism.css" />
+  <link rel="stylesheet" href="css/manual.css" />
+  <script src="js/vendor/modernizr.js"></script>
+  <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->     
+  </head>
+
+  <body>
+  
+  <div class="container">
+  <div class="row">
+    <div class="large-12 column text-center"><a href="https://payalord.github.io/xZoom"><img src="images/logo.png" alt=""></a></div>
+    <div class="large-12 column"><p><h2>Manual</h2></p></div>
+    <div class="large-12 column">
+    <ul>
+      <li><a href="#started">Getting Started</a></li>
+      <li><a href="#options">Options</a></li>
+      <li><a href="#specific">xZoom specific image tag attributes</a></li>
+      <li><a href="#advanced">Advanced ways of usage</a></li>
+      <li><a href="#events">Event methods</a></li>
+    </ul>
+    </div>
+  </div>
+  <section id="started" class="padding-top0">
+    <div class="row">
+    <div class="large-12 column">
+      <h3>Getting started</h3>  
+    </div>    
+    <div class="large-12 column">
+      <div class="line">
+      <p>Main syntax:</p>
+      <code class="language-javascript">$("selector").xzoom({options});</code>
+      </div>
+      <div class="line">
+      Where:<br />
+      selector - is any jQuery selector, that will point to the image structure.<br />
+      options - are optional options, that will allow to customize the zoom options as you need.<br />
+      </div>          
+      <div class="line">
+      There is two ways how xZoom is works with jQuery selectors. And, depending on how you will provide selector, initialization will be processed.
+      <p>For example, initialize with 1 class name:</p>
+      <code class="language-javascript">$(".xzoom").xzoom();</code>
+      <p>In this case xZoom will take first image of the class ".xzoom" as main source image to provide zoom functionality on it. Other images with the same class will be used as thumbnails.</p>
+      <p>Initialize with 2 and more class names:</p>
+      <code class="language-javascript">$(".xzoom, .xzoom-gallery").xzoom();</code>
+      <p>In this case xZoom will take only first image of the class ".xzoom" as main source image, then will ignore all other images of the class ".xzoom", and starting from second class ".xzoom-gallery" it will use all of the images as thumbnails.</p>
+      <p>It is possible also to use the ID for the main source image in initialization, like:</p>
+      <code class="language-javascript">$("#main_image, .xzoom-gallery").xzoom();</code>
+      <p>The HTML structure of all zoom images, must be the next:</p>
+        <pre><code class="language-markup">&lt;!-- Main image, on which xzoom will be applied --&gt;
+&lt;img class="xzoom" id="main_image" src="path/to/preview/1.jpg" xoriginal="path/to/original/1.jpg"&gt;
+
+&lt;!-- Thumbnails --&gt;
+&lt;a href="path/to/original/2.jpg"&gt;
+  &lt;img class="xzoom-gallery" width="80" src="path/to/thumbs/2.jpg" xpreview="path/to/preview/2.jpg"&gt;
+&lt;/a&gt;
+
+&lt;a href="path/to/original/3.jpg"&gt;
+  &lt;img class="xzoom-gallery" width="80" src="path/to/preview/3.jpg"&gt;
+&lt;/a&gt;</code></pre>
+      <p>Note: all thumbnails must be wrapped by 'a' tag, where 'href' attribute contains the path to original big image.</p>
+      </div>
+    </div>
+    </div>
+  </section>
+   <section id="options" class="padding-top0">
+    <div class="row">
+    <div class="large-12 column">
+      <h3>Options</h3>  
+    </div>    
+    <div class="large-12 column">
+      <div class="line">
+      <p>
+      Here is list of all possible options and their description:</p>
+      </div>
+      <div>
+      <table>
+        <thead>
+        <tr>
+          <th>Property</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td class="green">position</td>
+          <td>right</td>
+          <td>Position of zoom output window, one of the next properties is available "top", "left", "right", "bottom", "inside", "lens", "#ID".</td>
+        </tr>
+        <tr>
+          <td class="green">rootOutput</td>
+          <td>true</td>
+          <td>In the HTML structure, this option gives an ability to output xzoom element, to the end of the document body or relative to the parent element of main source image.</td>
+        </tr>
+        <tr>
+          <td class="green">Xoffset</td>
+          <td>0</td>
+          <td>Zoom output window horizontal offset in pixels from output base position.</td>
+        </tr>
+        <tr>
+          <td class="green">Yoffset</td>
+          <td>0</td>
+          <td>Zoom output window vertical offset in pixels from output base position.</td>
+        </tr> 
+        <tr>
+          <td class="green">fadeIn</td>
+          <td>true</td>
+          <td>Fade in effect, when zoom is opening.</td>
+        </tr> 
+        <tr>
+          <td class="green">fadeTrans</td>
+          <td>true</td>
+          <td>Fade transition effect, when switching images by clicking on thumbnails.</td>
+        </tr> 
+        <tr>
+          <td class="green">fadeOut</td>
+          <td>false</td>
+          <td>Fade out effect, when zoom is closing.</td>
+        </tr> 
+        <tr>
+          <td class="green">smoothZoomMove</td>
+          <td>3</td>
+          <td>Smooth move effect of the big zoomed image in the zoom output window. The higher value will make movement smoother.</td>
+        </tr>
+        <tr>
+          <td class="green">smoothLensMove</td>
+          <td>1</td>
+          <td>Smooth move effect of lens.</td>
+        </tr>
+        <tr>
+          <td class="green">smoothScale</td>
+          <td>6</td>
+          <td>Smooth move effect of scale.</td>
+        </tr>
+        <tr>
+          <td class="green">defaultScale</td>
+          <td>0</td>
+          <td>You can setup default scale value of zoom on opening, from -1 to 1. Where -1 means -100%, and 1 means 100% of lens scale.</td>
+        </tr>
+        <tr>
+          <td class="green">scroll</td>
+          <td>true</td>
+          <td>Scale on mouse scroll.</td>
+        </tr>
+        <tr>
+          <td class="green">tint</td>
+          <td>false</td>
+          <td>Tint color. Color must be provided in format like "#color". We are not recommend you to use named css colors.</td>
+        </tr> 
+        <tr>
+          <td class="green">tintOpacity</td>
+          <td>0.5</td>
+          <td>Tint opacity from 0 to 1.</td>
+        </tr>
+        <tr>
+          <td class="green">lens</td>
+          <td>false</td>
+          <td>Lens color. Color must be provided in format like "#color". We are not recommend you to use named css colors.</td>
+        </tr>
+        <tr>
+          <td class="green">lensOpacity</td>
+          <td>0.5</td>
+          <td>Lens opacity from 0 to 1.</td>
+        </tr>
+        <tr>
+          <td class="green">lensShape</td>
+          <td>box</td>
+          <td>Lens shape "box" or "circle".</td>
+        </tr>
+        <tr>
+          <td class="green">zoomWidth</td>
+          <td>auto</td>
+          <td>Custom width of zoom window in pixels.</td>
+        </tr>
+        <tr>
+          <td class="green">zoomHeight</td>
+          <td>auto</td>
+          <td>Custom height of zoom window in pixels.</td>
+        </tr>
+        <tr>
+          <td class="green">sourceClass</td>
+          <td>xzoom-source</td>
+          <td>Class name for source "div" container.</td>
+        </tr>
+        <tr>
+          <td class="green">loadingClass</td>
+          <td>xzoom-loading</td>
+          <td>Class name for loading "div" container that appear before zoom opens, when image is still loading.</td>
+        </tr>
+        <tr>
+          <td class="green">lensClass</td>
+          <td>xzoom-lens</td>
+          <td>Class name for lens "div".</td>
+        </tr>
+        <tr>
+          <td class="green">zoomClass</td>
+          <td>xzoom-preview</td>
+          <td>Class name for zoom window(div).</td>
+        </tr>
+        <tr>
+          <td class="green">activeClass</td>
+          <td>xactive</td>
+          <td>Class name that will be added to active thumbnail image.</td>
+        </tr>
+        <tr>
+          <td class="green">hover</td>
+          <td>false</td>
+          <td>With this option you can make a selection action on thumbnail by hover mouse point on it.</td>
+        </tr>
+        <tr>
+          <td class="green">adaptive</td>
+          <td>true</td>
+          <td>Adaptive functionality.</td>
+        </tr>
+        </tr>
+        <tr>
+          <td class="green">lensReverse</td>
+          <td>false</td>
+          <td>When selected position "inside" and this option is set to true, the lens direction of moving will be reversed.</td>
+        </tr>
+        <tr>
+          <td class="green">adaptiveReverse</td>
+          <td>false</td>
+          <td>Same as lensReverse, but only available when adaptive is true.</td>
+        </tr>
+        </tr>
+        <tr>
+          <td class="green">title</td>
+          <td>false</td>
+          <td>Output title/caption of the image, in the zoom output window.</td>
+        </tr>
+        <tr>
+          <td class="green">titleClass</td>
+          <td>xzoom-caption</td>
+          <td>Class name for caption "div" container.</td>
+        </tr>
+        </tr>
+        <tr>
+          <td class="green">bg</td>
+          <td>false</td>
+          <td>Zoom image output as background.</td>
+        </tr>                               
+        </tbody>
+      </table>
+    </div>
+    <div>
+      Options are case sensetive. And must be passed to xZoom as javascript object:
+      <p><code class="language-javascript">$(".xzoom").xzoom({option1: value, option2: value, ...});</code></p>
+    </div>          
+    </div>
+    </div>
+  </section> 
+  <section id="specific">
+    <div class="row">
+    <div class="large-12 column">
+      <h3>xZoom specific image tag attributes</h3>  
+    </div>    
+    <div class="large-12 column">
+      <div class="line">
+      <p>For the main source image tag:</p>
+      <code class="highlight">xoriginal</code> - the path to the big image, that will be used as zoomed image in zoom.
+      </div>
+      <div class="line">
+      For the thumbnail image tags:
+      <p><code class="highlight">xpreview</code> - optional, but when it is set up, this attribute used as the medium preview image, while the src attribute in this case will be used as the small thumbnail image. If this attribute is not set up, then src attribute will be used as the medium preview image.</p>
+      <p><code class="highlight">xtitle</code> - text string that will be used as caption and will be shown in zoom output window inside "div" container with titleClass. If this attribute is not used then xZoom will use regular title attribute of the image.</p>
+      </div>          
+    </div>
+    </div>
+  </section>
+  <section id="advanced">
+    <div class="row">
+    <div class="large-12 column">
+      <h3>Advanced ways of usage</h3>  
+    </div>    
+    <div class="large-12 column">
+      <div class="line">
+      <p>Getting an instance:</p>
+      <code class="language-javascript">var instance = $("selector").xzoom({options});</code>
+      </div>
+      <div class="line">
+      Second way of getting an instance, after xZoom already has been called on jQuery object and already has been initialized:
+      <p><code class="language-javascript">$("selector").xzoom({options});
+var instance = $("selector").data('xzoom');</code></p>
+      <p>After you got an instance, you are able to use API functions.</p>
+      <p>List of available methods:</p>
+      <p><code class="javascript">xappend(jQuery_object)</code> - this function can add new thumbnail to current xZoom instance. It will take as parameter 1, object that must be an image and passed as jQuery object.</p>
+      <p><code class="javascript">gallery()</code> - this function can be used for integration with gallery plugins, like "FancyBox" or "Magnific Popup", it returns an object with the next properties:<br />
+      <code class="highlight">index</code> - current selected thumbnail. Starting from 0.<br />
+      <code class="highlight">ogallery</code> - array of paths to original big images.<br />
+      <code class="highlight">cgallery</code> - array of paths to original big images. Order begins from current index.</p>
+      <pre><code class="language-javascript">//Example: Integration with FancyBox plugin
+$('#main_image').bind('click', function() {
+  var xzoom = $(this).data('xzoom');
+  xzoom.closezoom();
+  $.fancybox.open(xzoom.gallery().cgallery, {padding: 0, helpers: {overlay: {locked: false}}});
+  event.preventDefault();
+});</code></pre>
+
+      <pre><code class="language-javascript">//Example: Integration with "Magnific Popup" plugin
+$('#main_image').bind('click', function() {
+  var xzoom = $(this).data('xzoom');
+  xzoom.closezoom();
+  var gallery = xzoom.gallery().cgallery;
+  var i, images = new Array();
+  for (i in gallery) {
+    images[i] = {src: gallery[i]};
+  }
+  $.magnificPopup.open({items: images, type:'image', gallery: {enabled: true}});
+  event.preventDefault();
+});</code></pre>
+      </div>              
+    </div>
+    </div>
+  </section>    
+  <section id="events">
+    <div class="row">
+    <div class="large-12 column">
+      <h3>Event methods</h3>  
+    </div>    
+    <div class="large-12 column">
+       <div>
+       <p>You are able to rewrite event functions that xzoom uses on some specific steps of working, to have more deep control and expand functionality as you want.</p>
+       </div>
+      <div class="line">
+      <p><code class="language-javascript">instance.eventopen(element)</code>
+      Function that is called on initialization step, that is binding an event "mouseenter" to the passed jQuery object "element" which is originnaly a main source image. And giving a function that need to be called when event will be triggered "instance.openzoom". </p>
+      <pre><code class="language-javascript">//Example
+instance.eventopen = function(element) {
+  element.bind('mouseenter', instance.openzoom);
+}</code></pre>
+    <p>Note: usually there is no need to change this function at all, but it is just present as optional feature. Because you just can use main source image via jQuery to bind to it any event and instance function "instance.openzoom" to open xZoom when event fired.</p>
+      </div>  
+      <div class="line">
+      <p><code class="language-javascript">instance.eventleave(element)</code>
+      Function that is called on the step when it is needed to bind an event to the element on which the leaving will be tracked.</p>
+      <pre><code class="language-javascript">//Example
+instance.eventleave = function(element) {
+  element.bind('mouseleave', instance.closezoom);
+}</code></pre>
+      </div> 
+      <div class="line">
+      <p><code class="language-javascript">instance.eventmove(element)</code>
+      Function that is called on the step when it is needed to bind an event to the element on which the moving will be tracked.</p>
+      <pre><code class="language-javascript">//Example
+instance.eventmove = function(element) {
+  element.bind('mousemove', instance.movezoom);
+}</code></pre>
+      </div>  
+      <div class="line">
+      <p><code class="language-javascript">instance.eventscroll(element)</code>
+      Function that is called on the step when it is needed to bind an event to the element on which the scrolling for scale will be tracked.</p>
+      <pre><code class="language-javascript">//Example
+instance.eventscroll = function(element) {
+  element.bind('mousewheel DOMMouseScroll', instance.xscroll);
+}</code></pre>
+      </div>  
+      <div class="line">
+      <p><code class="language-javascript">instance.eventclick(element)</code>
+      Function that is called on the step when it is needed to bind an event to the element on which the click will be tracked.</p>
+      <pre><code class="language-javascript">//Example
+instance.eventclick = function(element) {
+  element.bind('click', function(event) {
+    $('#main_image').trigger('click');
+  });
+}</code></pre>
+      </div>   
+      <div class="line">
+      <p><code class="language-javascript">instance.openzoom(event)</code>
+      Function to open zoom, uses event.pageX and event.pageY as start location of lens.</p>
+      </div>    
+      <div class="line">
+      <p><code class="language-javascript">instance.closezoom()</code>
+      Has no parameters, and simply closing the zoom.</p>
+      </div> 
+      <div class="line">
+      <p><code class="language-javascript">instance.movezoom(event)</code>
+      This function also uses event.pageX and event.pageY to be able to provide movement of lens on the zoom.</p>
+      </div>    
+      <div class="line">
+      <p><code class="language-javascript">instance.xscroll(event)</code>
+      This function is adapted for "mousewheel", "DOMMouseScroll" events and tested, and works fine on all major browsers. But if you are using some custom events where you will call this function directly then you can use event.xdelta as delta with value 0 or 1 to tell the direction of scaling by 5% from each call, or event.xscale for exact scale with value from -1 to 1 (which means -100% to 100%) to set up exact scale of the zoom as you need.</p>
+      </div> 
+      <div class="line">
+      <p><code class="language-javascript">instance.eventunbind()</code>
+      Function that will delete original instance.event* functions by replacing them with blank functions and unbind default events on objects. It can help you to clear default mouse binding events that xzoom already setup.</p>
+      </div>   
+      <div class="line">
+      <p><code class="language-javascript">instance.eventdefault()</code>
+      Function that will restore original instance.event* functions.</p>
+      </div>                                                                                 
+    </div>
+    </div>
+  </section> 
+  <section>
+  <div class="row">
+    <div class="large-12 column">
+      <div class="line">
+        <p>All new features and last updated docs you can find here: <a href="https://github.com/payalord/xZoom">github.com/payalord/xZoom</a></p>
+      </div>
+    </div>
+  </div>  
+  </section>           
+  </div>
+  <script src="js/vendor/jquery.js"></script>
+  <script src="js/foundation.min.js"></script>
+  <script src="js/vendor/prism.js"></script>
+  </body>
+</html>
