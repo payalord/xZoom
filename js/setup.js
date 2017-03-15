@@ -1,38 +1,9 @@
 (function ($) {
   $(document).ready(function() {
-    /*  Default options
-      Tips: 
-        a) It is better to specify color like '#color' because IE have problem with some named colors like 'grey'
-
-      position: 'right', //top, left, right, bottom, inside, lens, ID
-      rootOutput: true,
-      Xoffset: 0,
-      Yoffset: 0,
-      fadeIn: true,
-      fadeTrans: true,
-      fadeOut: false,
-      smoothZoomMove: 3,
-      smoothLensMove: 1,
-      smoothScale: 6,
-      defaultScale: 0, //from -1 to 1, that means -100% till 100% scale
-      scroll: true,
-      tint: false, //'#color'
-      tintOpacity: 0.5,
-      lens: false, //'#color'
-      lensOpacity: 0.5,
-      lensShape: 'box', //'box', 'circle'
-      zoomWidth: 'auto',
-      zoomHeight: 'auto',
-      sourceClass: 'xzoom-source',
-      loadingClass: 'xzoom-loading',
-      lensClass: 'xzoom-lens',
-      zoomClass: 'xzoom-preview',
-      pie:false //CSS3pie.com, not recommended to use
-    */
 
     $('.xzoom, .xzoom-gallery').xzoom({zoomWidth: 400, title: true, tint: '#333', Xoffset: 15});
     $('.xzoom2, .xzoom-gallery2').xzoom({position: '#xzoom2-id', tint: '#ffa200'});
-    $('.xzoom3, .xzoom-gallery3').xzoom({position: 'lens', lensShape: 'circle', bg:true, sourceClass: 'xzoom-hidden'});
+    $('.xzoom3, .xzoom-gallery3').xzoom({position: 'lens', lensShape: 'circle', sourceClass: 'xzoom-hidden'});
     $('.xzoom4, .xzoom-gallery4').xzoom({tint: '#006699', Xoffset: 15});
     $('.xzoom5, .xzoom-gallery5').xzoom({tint: '#006699', Xoffset: 15});
 
