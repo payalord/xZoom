@@ -5,7 +5,7 @@
     $('.xzoom2, .xzoom-gallery2').xzoom({position: '#xzoom2-id', tint: '#ffa200'});
     $('.xzoom3, .xzoom-gallery3').xzoom({position: 'lens', lensShape: 'circle', sourceClass: 'xzoom-hidden'});
     $('.xzoom4, .xzoom-gallery4').xzoom({tint: '#006699', Xoffset: 15});
-    $('.xzoom5, .xzoom-gallery5').xzoom({tint: '#006699', Xoffset: 15});
+    $('.xzoom5, .xzoom-gallery5').xzoom({mposition: 'fullscreen', tint: '#006699', Xoffset: 15});
 
     //Integration with hammer.js
     var isTouchSupported = 'ontouchstart' in window;
