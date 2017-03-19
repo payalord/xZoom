@@ -6,10 +6,7 @@
     "Elman Guseynov <hello@elman.pro> (http://elman.pro)"
   ],
   "description": "jQuery responsive image zoom in/out gallery plugin. With a lot of customizable options. Supports jQuery v1.2.6 and higher.",
-  "main": [
-    "dist/xzoom.css",
-    "dist/xzoom.min.js"
-  ],
+  "main": "dist/xzoom.min.js",
   "directories": {
     "doc": "docs",
     "example": "example",
