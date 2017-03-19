@@ -1,0 +1,49 @@
+{
+  "name": "xzoom",
+  "version": "1.0.1",
+  "contributors": [
+    "Azat Ahmedov <payalord@gmail.com> (https://payalord.github.io)",
+    "Elman Guseynov <hello@elman.pro> (http://elman.pro)"
+  ],
+  "description": "jQuery responsive image zoom in/out gallery plugin. With a lot of customizable options. Supports jQuery v1.2.6 and higher.",
+  "main": [
+    "dist/xzoom.css",
+    "dist/xzoom.min.js"
+  ],
+  "directories": {
+    "doc": "docs",
+    "example": "example",
+    "lib": "dist"
+  },
+  "scripts": {
+    "test": "gulp"
+  },
+  "keywords": [
+    "jquery",
+    "zoom",
+    "magnify",
+    "image",
+    "responsive",
+    "responsive zoom",
+    "responsive magnify"
+    "jquery-plugin",
+    "ecosystem:jquery",
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/payalord/xZoom.git"
+  },
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/payalord/xZoom/issues"
+  },
+  "homepage": "https://payalord.github.io/xZoom/",
+  "dependencies": {
+    "jquery": ">=1.2.6"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^2.1.0"
+  },
+}
