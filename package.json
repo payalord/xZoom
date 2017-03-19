@@ -25,9 +25,9 @@
     "image",
     "responsive",
     "responsive zoom",
-    "responsive magnify"
+    "responsive magnify",
     "jquery-plugin",
-    "ecosystem:jquery",
+    "ecosystem:jquery"
   ],
   "repository": {
     "type": "git",
