@@ -1,5 +1,5 @@
 /*!-----------------------------------------------------
- * xZoom v1.0.1
+ * xZoom v1.0.2
  * (c) 2013 by Azat Ahmedov & Elman Guseynov
  * https://github.com/payalord
  * https://dribbble.com/elmanvebs
