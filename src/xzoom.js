@@ -1,5 +1,5 @@
 /*!-----------------------------------------------------
- * xZoom v1.0.2
+ * xZoom v1.0.3
  * (c) 2013 by Azat Ahmedov & Elman Guseynov
  * https://github.com/payalord
  * https://dribbble.com/elmanvebs
@@ -33,6 +33,10 @@ if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
 }
 
 (function ($) {
+  //Compatibility between old and new versions of jQuery
+  $.fn.xon = $.fn.on || $.fn.bind;
+  $.fn.xoff = $.fn.off || $.fn.bind;
+
   function xobject(mObj, opts) {
     //Properties
     this.xzoom = true;
@@ -539,7 +543,7 @@ if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
         preview.css({top: mtop, left: mleft});
 
         //We must be sure that image has been loaded
-        imgObj.bind('load', function() {
+        imgObj.xon('load', function() {
           loading.remove();
 
           //Scroll functionality
@@ -649,30 +653,30 @@ if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
 
     this.eventdefault = function() {
       current.eventopen = function(element) {
-        element.bind('mouseenter', current.openzoom);
+        element.xon('mouseenter', current.openzoom);
       }
 
       current.eventleave = function(element) {
-        element.bind('mouseleave', current.closezoom);
+        element.xon('mouseleave', current.closezoom);
       }
 
       current.eventmove = function(element) {
-        element.bind('mousemove', current.movezoom);
+        element.xon('mousemove', current.movezoom);
       }
       
       current.eventscroll = function(element) {
-        element.bind('mousewheel DOMMouseScroll', current.xscroll);
+        element.xon('mousewheel DOMMouseScroll', current.xscroll);
       }
 
       current.eventclick = function(element) {
-        element.bind('click', function(event) {
+        element.xon('click', function(event) {
           mObj.trigger('click');
         });
       }
     }
 
     this.eventunbind = function() {
-      mObj.unbind('mouseenter');
+      mObj.xoff('mouseenter');
       current.eventopen = function(element) {}
       current.eventleave = function(element) {}
       current.eventmove = function(element) {}
@@ -703,7 +707,7 @@ if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
 
       //Adaptive
       if (current.options.adaptive) {
-        $(window).load(function(){
+        $(window).xon('load',function(){
           osw = mObj.width();
           osh = mObj.height();
 
@@ -806,9 +810,9 @@ if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
       }
 
       if (current.options.hover) {
-        link.bind('mouseenter', link, thumbchange);
+        link.xon('mouseenter', link, thumbchange);
       }
-      link.bind('click', link, thumbchange);
+      link.xon('click', link, thumbchange);
     }
 
     this.init(opts);
