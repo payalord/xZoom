@@ -2,8 +2,8 @@
   "name": "xzoom",
   "description": "jQuery responsive image zoom in/out gallery plugin. With a lot of customizable options. Supports jQuery v1.2.6 and higher.",
   "main": [
-  	"dist/xzoom.css",
-  	"dist/xzoom.min.js"
+  	"src/xzoom.css",
+  	"src/xzoom.js"
   ],
   "authors": [
     "Azat Ahmedov <payalord@gmail.com> (https://payalord.github.io)",
