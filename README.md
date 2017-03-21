@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/payalord/xZoom.svg?branch=master)](https://travis-ci.org/payalord/xZoom) [![npm](https://img.shields.io/npm/v/npm.svg)](https://www.npmjs.com/package/xzoom) [![GitHub license](https://img.shields.io/badge/license-Apache%202-blue.svg)](https://raw.githubusercontent.com/payalord/xZoom/master/LICENSE) [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ASVGPLVSMYY6U)
+[![Build Status](https://travis-ci.org/payalord/xZoom.svg?branch=master)](https://travis-ci.org/payalord/xZoom) [![npm](https://img.shields.io/npm/v/xzoom.svg)](https://www.npmjs.com/package/xzoom) [![GitHub license](https://img.shields.io/badge/license-Apache%202-blue.svg)](https://raw.githubusercontent.com/payalord/xZoom/master/LICENSE) [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ASVGPLVSMYY6U)
 
 # xZoom
 
@@ -19,6 +19,9 @@ Use one of the following methods:
 * `npm install xzoom`
 * `bower install xzoom`
 * [Download zip](https://github.com/payalord/xZoom/archive/master.zip)
+* Use CDN:
+ * `https://unpkg.com/xzoom/dist/xzoom.min.js`
+ * `https://unpkg.com/xzoom/dist/xzoom.css`
 
 # Quick Start
 
@@ -67,6 +70,7 @@ Initialize the plugin in "document ready" section of your javascript or at the e
 /* calling script */
 $(".xzoom").xzoom({tint: '#333', Xoffset: 15});
 ```
+
 Enjoy xZoom experience!
 
 # Documentation
