@@ -20,8 +20,8 @@ Use one of the following methods:
 * `bower install xzoom`
 * [Download zip](https://github.com/payalord/xZoom/archive/master.zip)
 * Use CDN:
- * `https://unpkg.com/xzoom/dist/xzoom.min.js`
- * `https://unpkg.com/xzoom/dist/xzoom.css`
+  * `https://unpkg.com/xzoom/dist/xzoom.min.js`
+  * `https://unpkg.com/xzoom/dist/xzoom.css`
 
 # Quick Start
 
