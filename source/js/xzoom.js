@@ -1,5 +1,5 @@
 /*!-----------------------------------------------------
- * xZoom v1.0.1
+ * xZoom v1.0.4
  * (c) 2013 by Azat Ahmedov & Elman Guseynov
  * https://github.com/payalord
  * https://dribbble.com/elmanvebs
@@ -33,6 +33,10 @@ if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
 }
 
 (function ($) {
+  //Compatibility between old and new versions of jQuery
+  $.fn.xon = $.fn.on || $.fn.bind;
+  $.fn.xoff = $.fn.off || $.fn.bind;
+
   function xobject(mObj, opts) {
     //Properties
     this.xzoom = true;
@@ -539,7 +543,7 @@ if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
         preview.css({top: mtop, left: mleft});
 
         //We must be sure that image has been loaded
-        imgObj.bind('load', function() {
+        imgObj.xon('load', function() {
           loading.remove();
 
           //Scroll functionality
@@ -595,8 +599,23 @@ if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
           //outerHeight and outerWidth work wrong sometimes, especially when we use init() function
           //ltc = lens.outerHeight() / 2;
           //llc = lens.outerWidth() / 2;
-          ltc = (parseFloat(lens.css('padding-top')) + parseFloat(lens.css('padding-bottom')) + parseFloat(lens.css('border-top')) + parseFloat(lens.css('border-bottom'))) / 2;
-          llc = (parseFloat(lens.css('padding-left')) + parseFloat(lens.css('padding-right')) + parseFloat(lens.css('border-left')) + parseFloat(lens.css('border-right'))) / 2;
+          //Issue #2 Test .css() function that can return NaN and break lens object position
+          var t, o = ['padding-','border-'];
+          ltc = llc = 0;
+          for(var i = 0; i<o.length;i++) {
+            t = parseFloat(lens.css(o[i]+'top-width'));
+            ltc += t !== t ? 0 : t;
+            t = parseFloat(lens.css(o[i]+'bottom-width'));
+            ltc += t !== t ? 0 : t;
+            t = parseFloat(lens.css(o[i]+'left-width'));
+            llc += t !== t ? 0 : t;
+            t = parseFloat(lens.css(o[i]+'right-width'));
+            llc += t !== t ? 0 : t;
+          }
+          ltc /= 2;
+          llc /= 2;
+          //ltc = (parseFloat(lens.css('padding-top-width')) + parseFloat(lens.css('padding-bottom-width')) + parseFloat(lens.css('border-top-width')) + parseFloat(lens.css('border-bottom-width'))) / 2;
+          //llc = (parseFloat(lens.css('padding-left-width')) + parseFloat(lens.css('padding-right-width')) + parseFloat(lens.css('border-left-width')) + parseFloat(lens.css('border-right-width'))) / 2;
           //ltc = (pb(lens, 'padding', 1) + pb(lens, 'border', 1)) / 2;
           //llc = (pb(lens, 'padding', 0) + pb(lens, 'border', 0)) / 2;
 
@@ -649,30 +668,30 @@ if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
 
     this.eventdefault = function() {
       current.eventopen = function(element) {
-        element.bind('mouseenter', current.openzoom);
+        element.xon('mouseenter', current.openzoom);
       }
 
       current.eventleave = function(element) {
-        element.bind('mouseleave', current.closezoom);
+        element.xon('mouseleave', current.closezoom);
       }
 
       current.eventmove = function(element) {
-        element.bind('mousemove', current.movezoom);
+        element.xon('mousemove', current.movezoom);
       }
       
       current.eventscroll = function(element) {
-        element.bind('mousewheel DOMMouseScroll', current.xscroll);
+        element.xon('mousewheel DOMMouseScroll', current.xscroll);
       }
 
       current.eventclick = function(element) {
-        element.bind('click', function(event) {
+        element.xon('click', function(event) {
           mObj.trigger('click');
         });
       }
     }
 
     this.eventunbind = function() {
-      mObj.unbind('mouseenter');
+      mObj.xoff('mouseenter');
       current.eventopen = function(element) {}
       current.eventleave = function(element) {}
       current.eventmove = function(element) {}
@@ -703,7 +722,7 @@ if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
 
       //Adaptive
       if (current.options.adaptive) {
-        $(window).load(function(){
+        $(window).xon('load',function(){
           osw = mObj.width();
           osh = mObj.height();
 
@@ -806,9 +825,9 @@ if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
       }
 
       if (current.options.hover) {
-        link.bind('mouseenter', link, thumbchange);
+        link.xon('mouseenter', link, thumbchange);
       }
-      link.bind('click', link, thumbchange);
+      link.xon('click', link, thumbchange);
     }
 
     this.init(opts);
