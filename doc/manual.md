@@ -37,11 +37,11 @@ The HTML structure of all zoom images, must be the next:
 
 <!-- Thumbnails -->
 <a href="path/to/original/2.jpg">
-	<img class="xzoom-gallery" width="80" src="path/to/thumbs/2.jpg" xpreview="path/to/preview/2.jpg">
+  <img class="xzoom-gallery" width="80" src="path/to/thumbs/2.jpg" xpreview="path/to/preview/2.jpg">
 </a>
 
 <a href="path/to/original/3.jpg">
-	<img class="xzoom-gallery" width="80" src="path/to/preview/3.jpg">
+  <img class="xzoom-gallery" width="80" src="path/to/preview/3.jpg">
 </a>
 ```
 Where:  
@@ -128,23 +128,23 @@ List of available methods:
 ```javascript
 //Example: Integration with FancyBox plugin
 $('#main_image').bind('click', function() {
-	var xzoom = $(this).data('xzoom');
-	xzoom.closezoom();
-	$.fancybox.open(xzoom.gallery().cgallery, {padding: 0, helpers: {overlay: {locked: false}}});
-	event.preventDefault();
+  var xzoom = $(this).data('xzoom');
+  xzoom.closezoom();
+  $.fancybox.open(xzoom.gallery().cgallery, {padding: 0, helpers: {overlay: {locked: false}}});
+  event.preventDefault();
 });
 
 //Example: Integration with "Magnific Popup" plugin
 $('#main_image').bind('click', function() {
-	var xzoom = $(this).data('xzoom');
-	xzoom.closezoom();
-	var gallery = xzoom.gallery().cgallery;
-	var i, images = new Array();
-	for (i in gallery) {
-		images[i] = {src: gallery[i]};
-	}
-	$.magnificPopup.open({items: images, type:'image', gallery: {enabled: true}});
-	event.preventDefault();
+  var xzoom = $(this).data('xzoom');
+  xzoom.closezoom();
+  var gallery = xzoom.gallery().cgallery;
+  var i, images = new Array();
+  for (i in gallery) {
+    images[i] = {src: gallery[i]};
+  }
+  $.magnificPopup.open({items: images, type:'image', gallery: {enabled: true}});
+  event.preventDefault();
 });
 ```
 
@@ -155,7 +155,7 @@ You are able to rewrite event functions that xzoom uses on some specific steps o
 `instance.eventopen(element)` - function that is called on initialization step, that is binding an event **mouseenter** to the passed jQuery object **element** which is originally a main source image. And giving a function that need to be called when event will be triggered `instance.openzoom`. Example:
 ```javascript
 instance.eventopen = function(element) {
-	element.bind('mouseenter', instance.openzoom);
+  element.bind('mouseenter', instance.openzoom);
 }
 ```
 Note: usually there is no need to change this function at all, but it is just present as optional feature. Because you just can use main source image via jQuery to bind to it any event and instance function `instance.openzoom` to open xZoom when event fired.
@@ -163,27 +163,27 @@ Note: usually there is no need to change this function at all, but it is just pr
 `instance.eventleave(element)` - function that is called on the step when it is needed to bind an event to the element on which the leaving will be tracked. Example:
 ```javascript
 instance.eventleave = function(element) {
-	element.bind('mouseleave', instance.closezoom);
+  element.bind('mouseleave', instance.closezoom);
 }
 ```
 `instance.eventmove(element)` - function that is called on the step when it is needed to bind an event to the element on which the moving will be tracked. Example:
 ```javascript
 instance.eventmove = function(element) {
-	element.bind('mousemove', instance.movezoom);
+  element.bind('mousemove', instance.movezoom);
 }
 ```
 `instance.eventscroll(element)` - function that is called on the step when it is needed to bind an event to the element on which the scrolling for scale will be tracked. Example:
 ```javascript
 instance.eventscroll = function(element) {
-	element.bind('mousewheel DOMMouseScroll', instance.xscroll);
+  element.bind('mousewheel DOMMouseScroll', instance.xscroll);
 }
 ```
 `instance.eventclick(element)` - function that is called on the step when it is needed to bind an event to the element on which the click will be tracked. Example:
 ```javascript
 instance.eventclick = function(element) {
-	element.bind('click', function(event) {
-		$('#main_image').trigger('click');
-	});
+  element.bind('click', function(event) {
+    $('#main_image').trigger('click');
+  });
 }
 ```
 `instance.openzoom(event)` - function to open zoom, uses event.pageX and event.pageY as start location of lens.  
@@ -196,12 +196,16 @@ instance.eventclick = function(element) {
 
 # Useful Tips
 
-If you are useing some adaptive/responsive frameworks like Foundation or Bootstrap, make sure that their styles doesn't affect xzoom images. Because in that case jQuery will not calculate their width/height the right way and zoom will be broken. To provide compatibility between them we suggest you to use some reset styles on xzoom image elements, for example:
+If you are useing some adaptive/responsive frameworks like Foundation or Bootstrap, make sure that their styles doesn't affect xzoom images. Because in that case jQuery will not calculate their width/height or movement the right way and zoom will be broken. To provide compatibility between them we suggest you to use some reset styles on xzoom image elements, for example:
 ```css
 .xzoom-source img, .xzoom-preview img, .xzoom-lens img {
-	display: block;
-	max-width: none;
-	max-height: none;
+  display: block;
+  max-width: none;
+  max-height: none;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  transition: none;
 }
 ```
 Also for this case we created an option `rootOutput`, so you can take a control where inside html you want xZoom elements to be output. To the end of `body` tag or relative to the parent of main source image.
