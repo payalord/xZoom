@@ -5,7 +5,7 @@
 jQuery Zoom Gallery plugin.
 * Supports jQuery starting from version 1.2.6.
 * A lof of options, effects and easy to use and customize
-* Lightweight ~13kb minified version.
+* Lightweight ~14kb minified version.
 * You can load low and high res images separately.
 * Supports IE6+, Chrome, FireFox, Opera, Safari, Android, iOS
 * Supports Responsive output.
