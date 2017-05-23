@@ -12,7 +12,7 @@
 
 /* xZoom Styles below */
 .xzoom-container { 
-  display: inline-block; 
+  display: inline-block;
 }
 
 .xzoom-thumbs {
@@ -29,13 +29,12 @@
 .xzoom2, .xzoom3, .xzoom4, .xzoom5 {
   -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
   -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
-  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);  
-  margin-bottom: 15px;  
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
 }
 
 /* Thumbs */
-.xzoom-gallery, .xzoom-gallery2, .xzoom-gallery3, .xzoom-gallery4, .xzoom-gallery5 { 
-  border: 1px solid #cecece; 
+.xzoom-gallery, .xzoom-gallery2, .xzoom-gallery3, .xzoom-gallery4, .xzoom-gallery5 {
+  border: 1px solid #cecece;
   margin-left: 5px;
   margin-bottom: 10px;
 }
@@ -78,7 +77,7 @@
 }
 
 /* Additional class that applied to thumb when it is active */
-.xactive {  
+.xactive {
   -webkit-box-shadow: 0px 0px 3px 0px rgba(74,169,210,1);
   -moz-box-shadow: 0px 0px 3px 0px rgba(74,169,210,1);
   box-shadow: 0px 0px 3px 0px rgba(74,169,210,1); 
