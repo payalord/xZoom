@@ -58,6 +58,7 @@ Here is list of all possible options and their description:
 | Property | Default | Description |
 |-----------------|---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | position | right | Position of zoom output window, one of the next properties is available "top", "left", "right", "bottom", "inside", "lens", "#ID". |
+| mposition | inside | Position of zoom output window in adaptive mode (i.e. for mobile devices) available properties: "inside", "fullscreen" |
 | rootOutput | true | In the HTML structure, this option gives an ability to output xzoom element, to the end of the document body or relative to the parent element of main source image. |
 | Xoffset | 0 | Zoom output window horizontal offset in pixels from output base position. |
 | Yoffset | 0 | Zoom output window vertical offset in pixels from output base position. |
