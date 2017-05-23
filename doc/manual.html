@@ -25,6 +25,7 @@
       <li><a href="#specific">xZoom specific image tag attributes</a></li>
       <li><a href="#advanced">Advanced ways of usage</a></li>
       <li><a href="#events">Event methods</a></li>
+      <li><a href="#usefultips">Useful Tips</a></li>
     </ul>
     </div>
   </div>
@@ -94,6 +95,11 @@
           <td class="green">position</td>
           <td>right</td>
           <td>Position of zoom output window, one of the next properties is available "top", "left", "right", "bottom", "inside", "lens", "#ID".</td>
+        </tr>
+        <tr>
+          <td class="green">mposition</td>
+          <td>inside</td>
+          <td>Position of zoom output window in adaptive mode (i.e. for mobile devices) available properties: "inside", "fullscreen".</td>
         </tr>
         <tr>
           <td class="green">rootOutput</td>
@@ -399,7 +405,29 @@ instance.eventclick = function(element) {
       </div>                                                                                 
     </div>
     </div>
-  </section> 
+  </section>
+  <section id="usefultips">
+    <div class="row">
+    <div class="large-12 column">
+      <h3>Useful Tips</h3>  
+    </div>    
+    <div class="large-12 column">
+      If you are useing some adaptive/responsive frameworks like Foundation or Bootstrap, make sure that their styles doesn't affect xzoom images. Because in that case jQuery will not calculate their width/height or movement the right way and zoom will be broken. To provide compatibility between them we suggest you to use some reset styles on xzoom image elements, for example:
+      <pre><code class="language-css">
+      .xzoom-source img, .xzoom-preview img, .xzoom-lens img {
+        display: block;
+        max-width: none;
+        max-height: none;
+        -webkit-transition: none;
+        -moz-transition: none;
+        -o-transition: none;
+        transition: none;
+      }
+      </code></pre>
+      Also for this case we created an option <code class="highlight">rootOutput</code>, so you can take a control where inside html you want xZoom elements to be output. To the end of <code class="highlight">body</code> tag or relative to the parent of main source image.
+    </div>
+    </div>
+  </section>
   <section>
   <div class="row">
     <div class="large-12 column">
@@ -408,7 +436,7 @@ instance.eventclick = function(element) {
       </div>
     </div>
   </div>  
-  </section>           
+  </section>
   </div>
   <script src="js/vendor/jquery.js"></script>
   <script src="js/foundation.min.js"></script>

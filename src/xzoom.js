@@ -1,5 +1,5 @@
 /*!-----------------------------------------------------
- * xZoom v1.0.4
+ * xZoom v1.0.5
  * (c) 2013 by Azat Ahmedov & Elman Guseynov
  * https://github.com/payalord
  * https://dribbble.com/elmanvebs
@@ -97,8 +97,8 @@ if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
     function adaptive_position_fit() {
       var moffset = mObj.offset();
 
-      if (current.options.zoomWidth == 'auto') mw = tsw; else mw = tsw/osw * current.options.zoomWidth;
-      if (current.options.zoomHeight == 'auto') mh = tsh; else mh = tsw/osh * current.options.zoomHeight;
+      if (current.options.zoomWidth == 'auto') mw = tsw; else mw = current.options.zoomWidth; //tsw/osw * current.options.zoomWidth;
+      if (current.options.zoomHeight == 'auto') mh = tsh; else mh = current.options.zoomHeight; //tsw/osh * current.options.zoomHeight;
 
       if (current.options.position.substr(0,1) == '#') xzoomID = $(current.options.position); else xzoomID.length = 0;
       if (xzoomID.length != 0) return true;
@@ -359,8 +359,8 @@ if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
       if (xzoomID.length == 0 && current.options.position != 'inside' && current.options.position!= 'fullscreen') {
 
         if (!current.options.adaptive || !osw || !osh) {osw = sw; osh = sh;}
-        if (current.options.zoomWidth == 'auto') mw = sw; else mw = sw/osw * current.options.zoomWidth;
-        if (current.options.zoomHeight == 'auto') mh = sh; else mh = sw/osh * current.options.zoomHeight;
+        if (current.options.zoomWidth == 'auto') mw = sw; else mw = current.options.zoomWidth; //sw/osw * current.options.zoomWidth;
+        if (current.options.zoomHeight == 'auto') mh = sh; else mh = current.options.zoomHeight; //sw/osh * current.options.zoomHeight;
 
         //Add offset
         mtop += current.options.Yoffset;
@@ -806,20 +806,19 @@ if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
           trans.fadeOut(200, function() {trans.remove()});
         }
         var _xorig = link.attr('href');
-        var _prev;
-
-        if (Obj.attr('xpreview')) {
-          _prev = Obj.attr('xpreview');
-        } else {
-          _prev = Obj.attr('src');
-        }
+        var _prev = Obj.attr('xpreview') || Obj.attr('src');
 
         title = get_title(Obj);
         if (Obj.attr('title')) mObj.attr('title',Obj.attr('title'));
 
         //imgObj.attr('src',_xorig);
         mObj.attr('xoriginal',_xorig);
+        mObj.removeAttr('style');
         mObj.attr('src', _prev);
+        if (current.options.adaptive) {
+          osw = mObj.width();
+          osh = mObj.height();
+        }
         //Prevent submit on click
         //return false;
       }
@@ -885,7 +884,7 @@ if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
       return mainObj.x;
     }
 
-    $.fn.xzoom.defaults = {
+  $.fn.xzoom.defaults = {
     position: 'right', //top, left, right, bottom, inside, lens, fullscreen, #ID
     mposition: 'inside', //inside, fullscreen
     rootOutput: true,
