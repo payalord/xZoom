@@ -1,5 +1,5 @@
 /*!-----------------------------------------------------
- * xZoom v1.0.5
+ * xZoom v1.0.6
  * (c) 2013 by Azat Ahmedov & Elman Guseynov
  * https://github.com/payalord
  * https://dribbble.com/elmanvebs
@@ -514,6 +514,9 @@ if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
           parent.append(source);
         }
 
+        //Add event on mouse move
+        current.eventmove(source);
+
         //On mouse leave delete containers
         current.eventleave(source);
 
@@ -623,9 +626,6 @@ if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
           
           if (smoothNormal && !current.options.bg) {flag = true; requestAnimFrame(loopZoom);}
 
-          //Add event on mouse move
-          current.eventmove(source);
-          
           current.eventclick(source);
         });     
     }
