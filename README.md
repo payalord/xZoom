@@ -68,7 +68,7 @@ Add xZoom markup into your HTML:
 Initialize the plugin in "document ready" section of your javascript or at the end before `</body>`:
 ```javascript
 /* calling script */
-$(".xzoom").xzoom({tint: '#333', Xoffset: 15});
+$(".xzoom, .xzoom-gallery").xzoom({tint: '#333', Xoffset: 15});
 ```
 
 Enjoy xZoom experience!
