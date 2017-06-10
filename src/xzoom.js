@@ -1,5 +1,5 @@
 /*!-----------------------------------------------------
- * xZoom v1.0.6
+ * xZoom v1.0.7
  * (c) 2013 by Azat Ahmedov & Elman Guseynov
  * https://github.com/payalord
  * https://dribbble.com/elmanvebs
@@ -44,7 +44,7 @@ if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
     var parent;
     var xzoomID = {};
 
-    var sw, sh, mw, mh, moffset, stop, sleft, mtop, mleft, ctop, cleft;
+    var sw, sh, mw, mh, moffset, stop, sleft, mtop, mleft, ctop, cleft, mx, my;
     var source, tint, preview, loading, trans, transImg, sobjects = new Array();
     var imageGallery = new Array(), index = 0, cindex = 0;
     var img, imgObj, lens, lensImg;
@@ -138,27 +138,28 @@ if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
     }
 
     this.xscroll = function(event) {
+      mx = event.pageX || event.originalEvent.pageX;
+      my = event.pageY || event.originalEvent.pageY;
+      
       event.preventDefault();
 
       if (event.xscale) {
-        var x = event.pageX || event.originalEvent.pageX;
-        var y = event.pageY || event.originalEvent.pageY;
-
         scale = event.xscale;
-        xscale(x, y);
+        xscale(mx, my);
       } else {
         var delta = -event.originalEvent.detail || event.originalEvent.wheelDelta || event.xdelta;
-        var x = event.pageX || event.originalEvent.pageX;
-        var y = event.pageY || event.originalEvent.pageY;
+        var x = mx;
+        var y = my;
         if (ie) {
           x = iex;
           y = iey;
         }
 
-          if (delta > 0) delta = -0.05; else delta = 0.05;
+        if (delta > 0) delta = -0.05; else delta = 0.05;
 
-          scale += delta;
-          xscale(x, y);
+        scale += delta;
+        
+        xscale(x, y);
       }
     }
 
@@ -230,8 +231,8 @@ if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
       var y = lv;
       var x2 = llu;
       var y2 = llv;
-            var sx = lsu;
-            var sy = lsv;     
+      var sx = lsu;
+      var sy = lsv;
       x += (u - x) / current.options.smoothLensMove;
       y += (v - y) / current.options.smoothLensMove;
 
@@ -416,9 +417,6 @@ if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
         tint.css({'background-image': 'url('+mObj.attr('src')+')', 'background-color': '#fff'});
       }
 
-      lu = u = x;
-      lv = v = y;
-
       //Image object
       img = new Image();
       
@@ -455,6 +453,8 @@ if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
     }
 
     this.openzoom = function (event) {
+        mx = event.pageX; my = event.pageY;
+
         if (current.options.adaptive) current.adaptive();
         scale = current.options.defaultScale; flag = false;
 
@@ -520,7 +520,7 @@ if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
         //On mouse leave delete containers
         current.eventleave(source);
 
-        prepare_zoom(event.pageX, event.pageY);
+        prepare_zoom(mx, my);
 
         //Correct preview
         switch(current.options.position) {
@@ -621,8 +621,9 @@ if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
           //llc = (parseFloat(lens.css('padding-left-width')) + parseFloat(lens.css('padding-right-width')) + parseFloat(lens.css('border-left-width')) + parseFloat(lens.css('border-right-width'))) / 2;
           //ltc = (pb(lens, 'padding', 1) + pb(lens, 'border', 1)) / 2;
           //llc = (pb(lens, 'padding', 0) + pb(lens, 'border', 0)) / 2;
-
-          xscale(event.pageX, event.pageY);
+          llu = lu = u = mx;
+          llv = lv = v = my;
+          xscale(mx, my);
           
           if (smoothNormal && !current.options.bg) {flag = true; requestAnimFrame(loopZoom);}
 
@@ -639,13 +640,15 @@ if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
     }*/
 
     this.movezoom = function(event) {
+      mx = event.pageX;
+      my = event.pageY;
       if (ie) {
-        iex = event.pageX;
-        iey = event.pageY;
+        iex = mx;
+        iey = my;
       }
 
-      var x = event.pageX - sleft;
-      var y = event.pageY - stop;
+      var x = mx - sleft;
+      var y = my - stop;
 
       if (reverse) {
         event.pageX -= (x - sw / 2) * 2;
