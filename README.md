@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/payalord/xZoom.png?label=ready&title=Ready)](https://waffle.io/payalord/xZoom?utm_source=badge)
 [![Build Status](https://travis-ci.org/payalord/xZoom.svg?branch=master)](https://travis-ci.org/payalord/xZoom) [![npm](https://img.shields.io/npm/v/xzoom.svg)](https://www.npmjs.com/package/xzoom) [![GitHub license](https://img.shields.io/badge/license-Apache%202-blue.svg)](https://raw.githubusercontent.com/payalord/xZoom/master/LICENSE) [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ASVGPLVSMYY6U)
 
 # xZoom
