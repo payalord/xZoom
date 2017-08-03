@@ -88,7 +88,7 @@ Here is list of all possible options and their description:
 | adaptiveReverse | false | Same as lensReverse, but only available when adaptive is true. |
 | title | false | Output title/caption of the image, in the zoom output window. |
 | titleClass | xzoom-caption | Class name for caption "div" container. |
-| bg | false | Zoom image output as background. |
+| bg | false | Zoom image output as background, works only when position is set to "lens". |
 
 Options are case sensetive. And must be passed to xZoom as javascript object:
 ```javascript

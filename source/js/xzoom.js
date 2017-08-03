@@ -1,5 +1,5 @@
 /*!-----------------------------------------------------
- * xZoom v1.0.7
+ * xZoom v1.0.8
  * (c) 2013 by Azat Ahmedov & Elman Guseynov
  * https://github.com/payalord
  * https://dribbble.com/elmanvebs
@@ -55,7 +55,7 @@ if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
     var active, title = '', caption, caption_container;
 
     //Adaptive properties
-    var wsw, wsh, osw, osh, tsw, tsh, oposition, reverse, smoothNormal;
+    var wsw, wsh, osw, osh, tsw, tsh, oposition, reverse;//, smoothNormal;
 
     this.adaptive = function() {
       if (osw == 0 || osh == 0) {
@@ -111,14 +111,14 @@ if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
         case 'top':
           stop = moffset.top;
           sleft = moffset.left;
-          mtop = stop - tsh;
+          mtop = stop - mh; //tsh;
           mleft = sleft;
         break;
         case 'left':
           stop = moffset.top;
           sleft = moffset.left;
           mtop = stop;
-          mleft = sleft - tsw;
+          mleft = sleft - mw; //tsw;
         break;
         case 'bottom':
           stop = moffset.top;
@@ -197,7 +197,7 @@ if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
         var ih = mh * cc;
         var iw = ih * iwh;
       }
-      if (smoothNormal && flag) {
+      if (flag) {
         //If smoothMove
         u = x;
         v = y;
@@ -329,14 +329,14 @@ if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
         case 'top':
           stop = moffset.top;
           sleft = moffset.left;
-          mtop = stop - sh;
+          mtop = stop - mh;
           mleft = sleft;
         break;
         case 'left':
           stop = moffset.top;
           sleft = moffset.left;
           mtop = stop;
-          mleft = sleft - sw;
+          mleft = sleft - mw;
         break;
         case 'bottom':
           stop = moffset.top;
@@ -625,7 +625,7 @@ if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
           llv = lv = v = my;
           xscale(mx, my);
           
-          if (smoothNormal && !current.options.bg) {flag = true; requestAnimFrame(loopZoom);}
+          if (current.options.smooth) {flag = true; requestAnimFrame(loopZoom);}
 
           current.eventclick(source);
         });     
@@ -656,7 +656,7 @@ if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
       }
 
       if (x < 0 || x > sw || y < 0 || y > sh) source.trigger('mouseleave');
-      if (smoothNormal && !current.options.bg) {
+      if (current.options.smooth) {
         u = event.pageX;
         v = event.pageY;
       } else {
@@ -717,11 +717,11 @@ if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
       reverse = current.options.lensReverse && current.options.position == 'inside';
 
       //Limits
-      if (current.options.smoothZoomMove < 0) current.options.smoothZoomMove = 0;
-      if (current.options.smoothLensMove < 0) current.options.smoothLensMove = 0;
-      if (current.options.smoothScale < 0) current.options.smoothScale = 0;
+      if (current.options.smoothZoomMove < 1) current.options.smoothZoomMove = 1;
+      if (current.options.smoothLensMove < 1) current.options.smoothLensMove = 1;
+      if (current.options.smoothScale < 1) current.options.smoothScale = 1;
 
-      smoothNormal = current.options.smoothZoomMove && current.options.smoothLensMove && current.options.smoothScale;
+      //smoothNormal = current.options.smoothZoomMove && current.options.smoothLensMove && current.options.smoothScale;
 
       //Adaptive
       if (current.options.adaptive) {
@@ -896,6 +896,7 @@ if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
     fadeIn: true,
     fadeTrans: true,
     fadeOut: false,
+    smooth: true,
     smoothZoomMove: 3,
     smoothLensMove: 1,
     smoothScale: 6,
