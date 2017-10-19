@@ -140,7 +140,7 @@ if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
     this.xscroll = function(event) {
       mx = event.pageX || event.originalEvent.pageX;
       my = event.pageY || event.originalEvent.pageY;
-      
+
       event.preventDefault();
 
       if (event.xscale) {
@@ -158,7 +158,7 @@ if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
         if (delta > 0) delta = -0.05; else delta = 0.05;
 
         scale += delta;
-        
+
         xscale(x, y);
       }
     }
@@ -252,7 +252,7 @@ if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
 
       imgObj.width(sx);
       imgObj.height(sy);
-      
+
       lens.width(lw);
       lens.height(lh);
 
@@ -419,7 +419,7 @@ if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
 
       //Image object
       img = new Image();
-      
+
       var timestamp = '';
       if (aie) timestamp = '?r='+(new Date()).getTime();
       img.src = mObj.attr('xoriginal')+timestamp;
@@ -435,7 +435,7 @@ if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
       lensImg = $(img);
       lensImg.css('position', 'absolute');
       lensImg.width(sw);
-      
+
       //Append image
       switch (current.options.position) {
         case 'fullscreen':
@@ -476,7 +476,7 @@ if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
         preview = $('<div></div>');
         if (current.options.zoomClass != '' && current.options.position != 'fullscreen') preview.addClass(current.options.zoomClass);
         preview.css({position: 'absolute', overflow: 'hidden', opacity: 1});
-        
+
         //Caption
         if (current.options.title && title != '') {
           caption_container = $('<div></div>');
@@ -587,7 +587,7 @@ if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
 
               imgObjwidth = sw/osw * imgObjwidth;
               imgObjheight = sh/osh * imgObjheight;
-              
+
               imgObj.width(imgObjwidth);
               imgObj.height(imgObjheight);
             }
@@ -624,11 +624,11 @@ if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
           llu = lu = u = mx;
           llv = lv = v = my;
           xscale(mx, my);
-          
+
           if (current.options.smooth) {flag = true; requestAnimFrame(loopZoom);}
 
           current.eventclick(source);
-        });     
+        });
     }
 
     /*function pb(obj, name, dir) {
@@ -681,7 +681,7 @@ if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
       current.eventmove = function(element) {
         element.xon('mousemove', current.movezoom);
       }
-      
+
       current.eventscroll = function(element) {
         element.xon('mousewheel DOMMouseScroll', current.xscroll);
       }
@@ -739,7 +739,6 @@ if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
 
     this.destroy = function() {
       current.eventunbind();
-      delete current;
     }
 
     this.closezoom = function() {
