@@ -1,0 +1,38 @@
+<!-- donate-bitcoin Copyright (GPL) 2016  Nathan Robinson -->
+<DOCTYPE html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Donate Bitcoin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="shortcut icon" type="image/ico" href="favicon.ico">
+  </head>
+
+<script src="js/jquery.js"></script>
+<script src="js/jquery.qrcode.min.js"></script>
+<script src="index.js"></script>
+<body onload="donate()">
+<center>
+<div id="donatemessage"></div>
+<div id="donation">
+  <input type="text" name="donatebox" id="donatebox" onchange="donate()">
+  <br><br><img style="cursor:pointer" id="donationbutton" height="30px" onclick="donate()" src="">
+</div>
+<div id="donatetext"></div>
+<br>
+<div id="qrcodePlaceHolder"></div>
+</center>
+
+<script>
+document.getElementById("donatemessage").innerHTML = "<h1>Donate Bitcoin to " + organization +"</h1>";
+
+if (!isNaN(parseFloat(params.amount)))
+{
+  document.getElementById("donatebox").value = parseFloat(params.amount);
+}
+
+</script>
+</body>
+<html>
