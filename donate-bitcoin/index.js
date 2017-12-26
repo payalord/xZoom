@@ -7,7 +7,7 @@ var qrcode = true; // Set to false to disable qrcode
 var link = true; // Set to false to disable generating hyperlink
 var organization = "xZoom developers"; // Change to your organization name
 var mbits = true; // Set to false to display bitcoin traditionally
-var defaultAmountToDonate = 10; // Default amount to donate
+var defaultAmountToDonate = 5; // Default amount to donate
 var defaultCurrency = 'USD'; // Default currency to fallback
 var showDefaultCurrencyDisclaimer = true; // If the requested cuurency is not available show a warning
 
