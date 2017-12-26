@@ -1,5 +1,4 @@
-[![Stories in Ready](https://badge.waffle.io/payalord/xZoom.png?label=ready&title=Ready)](https://waffle.io/payalord/xZoom?utm_source=badge)
-[![Build Status](https://travis-ci.org/payalord/xZoom.svg?branch=master)](https://travis-ci.org/payalord/xZoom) [![npm](https://img.shields.io/npm/v/xzoom.svg)](https://www.npmjs.com/package/xzoom) [![GitHub license](https://img.shields.io/badge/license-Apache%202-blue.svg)](https://raw.githubusercontent.com/payalord/xZoom/master/LICENSE) [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ASVGPLVSMYY6U)
+[![Stories in Ready](https://badge.waffle.io/payalord/xZoom.png?label=ready&title=Ready)](https://waffle.io/payalord/xZoom?utm_source=badge) [![Build Status](https://travis-ci.org/payalord/xZoom.svg?branch=master)](https://travis-ci.org/payalord/xZoom) [![npm](https://img.shields.io/npm/v/xzoom.svg)](https://www.npmjs.com/package/xzoom) [![GitHub license](https://img.shields.io/badge/license-Apache%202-blue.svg)](https://raw.githubusercontent.com/payalord/xZoom/master/LICENSE) [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ASVGPLVSMYY6U) [![Donate Bitcoin](https://img.shields.io/badge/Donate-Bitcoin-orange.svg)](https://payalord.github.io/xZoom/donate-bitcoin/?amount=5&currency=USD)
 
 # xZoom
 
@@ -77,11 +76,16 @@ Enjoy xZoom experience!
 # Documentation
 For full list of options and how to setup, customize and work with xZoom plugin please read the [manual](doc/manual.md).
 
+# More Examples
+For more examples please check [xZoom Sandbox](https://github.com/payalord/xzoom-sandbox)
+
 # Donate
 If you liked the plugin and want to say thanks or want to help us make it better - feel free to make a donation ;)  
 
 ### PayPal:
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ASVGPLVSMYY6U)
+### Bitcoin:
+[![Donate Bitcoin](https://payalord.github.io/xZoom/donate-bitcoin/btc-donate-button.png)](https://payalord.github.io/xZoom/donate-bitcoin/?amount=5&currency=USD)
 
 # License
 [Apache License 2.0](LICENSE)
