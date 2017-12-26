@@ -1,5 +1,5 @@
 /*!-----------------------------------------------------
- * xZoom v1.0.8
+ * xZoom v1.0.9
  * (c) 2013 by Azat Ahmedov & Elman Guseynov
  * https://github.com/payalord
  * https://dribbble.com/elmanvebs
@@ -278,7 +278,7 @@ if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
       ll = x - (lw / 2);
       lt = y - (lh / 2);
 
-      if (current.options.position != 'lens') {
+      if (current.options.position != 'lens' && current.options.lensCollision) {
         if (ll < 0) ll = 0;
         if (ll > sw - lw) ll = sw - lw;
         if (lt < 0) lt = 0;
@@ -916,6 +916,7 @@ if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
     hover: false,
     adaptive: true,
     lensReverse: false,
+    lensCollision: true,
     adaptiveReverse: false,
     title: false,
     titleClass: 'xzoom-caption',

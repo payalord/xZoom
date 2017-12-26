@@ -75,6 +75,8 @@ Here is list of all possible options and their description:
 | lens | false | Lens color. Color must be provided in format like "#color". We are not recommend you to use named css colors. |
 | lensOpacity | 0.5 | Lens opacity from 0 to 1. |
 | lensShape | box | Lens shape "box" or "circle". |
+| lensCollision | true | Lens will collide and not go out of main image borders. This option is always false for position "lens". |
+| lensReverse | false | When selected position "inside" and this option is set to true, the lens direction of moving will be reversed. |
 | zoomWidth | auto | Custom width of zoom window in pixels. |
 | zoomHeight | auto | Custom height of zoom window in pixels. |
 | sourceClass | xzoom-source | Class name for source "div" container. |
@@ -84,7 +86,6 @@ Here is list of all possible options and their description:
 | activeClass | xactive | Class name that will be added to active thumbnail image. |
 | hover | false | With this option you can make a selection action on thumbnail by hover mouse point on it. |
 | adaptive | true | Adaptive functionality. |
-| lensReverse | false | When selected position "inside" and this option is set to true, the lens direction of moving will be reversed. |
 | adaptiveReverse | false | Same as lensReverse, but only available when adaptive is true. |
 | title | false | Output title/caption of the image, in the zoom output window. |
 | titleClass | xzoom-caption | Class name for caption "div" container. |

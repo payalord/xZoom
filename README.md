@@ -77,11 +77,16 @@ Enjoy xZoom experience!
 # Documentation
 For full list of options and how to setup, customize and work with xZoom plugin please read the [manual](doc/manual.md).
 
+# More Examples
+For more examples please check [xZoom Sandbox](https://github.com/payalord/xzoom-sandbox)
+
 # Donate
 If you liked the plugin and want to say thanks or want to help us make it better - feel free to make a donation ;)  
 
 ### PayPal:
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ASVGPLVSMYY6U)
+### Bitcoin:
+[![Donate Bitcoin](https://img.shields.io/badge/donate-$10-orange.svg)](https://payalord.github.io/xZoom/donate-bitcoin/?amount=10&currency=USD)
 
 # License
 [Apache License 2.0](LICENSE)
