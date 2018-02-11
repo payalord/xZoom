@@ -1,5 +1,5 @@
 /*!-----------------------------------------------------
- * xZoom v1.0.9
+ * xZoom v1.0.10
  * (c) 2013 by Azat Ahmedov & Elman Guseynov
  * https://github.com/payalord
  * https://dribbble.com/elmanvebs
@@ -500,6 +500,8 @@ if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
           lens.append(lenstint);
         }
 
+        prepare_zoom(mx, my);
+
         if (current.options.position != 'inside' && current.options.position != 'fullscreen') {
           if (current.options.tint || ie) source.append(tint);
 
@@ -519,8 +521,6 @@ if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
 
         //On mouse leave delete containers
         current.eventleave(source);
-
-        prepare_zoom(mx, my);
 
         //Correct preview
         switch(current.options.position) {
@@ -906,6 +906,8 @@ if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
     lens: false, //'#color'
     lensOpacity: 0.5,
     lensShape: 'box', //'box', 'circle'
+    lensCollision: true,
+    lensReverse: false,
     zoomWidth: 'auto',
     zoomHeight: 'auto',
     sourceClass: 'xzoom-source',
@@ -915,8 +917,6 @@ if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
     activeClass: 'xactive',
     hover: false,
     adaptive: true,
-    lensReverse: false,
-    lensCollision: true,
     adaptiveReverse: false,
     title: false,
     titleClass: 'xzoom-caption',
