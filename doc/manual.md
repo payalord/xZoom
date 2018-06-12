@@ -77,6 +77,7 @@ Here is list of all possible options and their description:
 | lensShape | box | Lens shape "box" or "circle". |
 | lensCollision | true | Lens will collide and not go out of main image borders. This option is always false for position "lens". |
 | lensReverse | false | When selected position "inside" and this option is set to true, the lens direction of moving will be reversed. |
+| openOnSmall | true | Option to control whether to open or not the zoom on original image, that is smaller than preview. |
 | zoomWidth | auto | Custom width of zoom window in pixels. |
 | zoomHeight | auto | Custom height of zoom window in pixels. |
 | sourceClass | xzoom-source | Class name for source "div" container. |
