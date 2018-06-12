@@ -1,5 +1,5 @@
 /*!-----------------------------------------------------
- * xZoom v1.0.10
+ * xZoom v1.0.11
  * (c) 2013 by Azat Ahmedov & Elman Guseynov
  * https://github.com/payalord
  * https://dribbble.com/elmanvebs
@@ -17,19 +17,19 @@ window.requestAnimFrame = (function(){
 })();
 
 function detect_old_ie() {
-if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
- var ieversion=new Number(RegExp.$1);
- if (ieversion>=9)
-  return false
- else if (ieversion>=8)
-  return true
- else if (ieversion>=7)
-  return true
- else if (ieversion>=6)
-  return true
- else if (ieversion>=5)
-  return true
-} else return false;
+  if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)) {
+   var ieversion=new Number(RegExp.$1);
+   if (ieversion>=9)
+    return false
+   else if (ieversion>=8)
+    return true
+   else if (ieversion>=7)
+    return true
+   else if (ieversion>=6)
+    return true
+   else if (ieversion>=5)
+    return true
+  } else return false;
 }
 
 (function ($) {
@@ -280,9 +280,11 @@ if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
 
       if (current.options.position != 'lens' && current.options.lensCollision) {
         if (ll < 0) ll = 0;
-        if (ll > sw - lw) ll = sw - lw;
+        if (sw >= lw && ll > sw - lw) ll = sw - lw;
+        if (sw < lw) ll = sw / 2 - lw / 2;
         if (lt < 0) lt = 0;
-        if (lt > sh - lh) lt = sh - lh;
+        if (sh >= lh && lt > sh - lh) lt = sh - lh;
+        if (sh < lh) lt = sh / 2 - lh / 2;
       }
     }
 
@@ -546,8 +548,13 @@ if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
         preview.css({top: mtop, left: mleft});
 
         //We must be sure that image has been loaded
-        imgObj.xon('load', function() {
+        imgObj.xon('load', function(e) {
           loading.remove();
+
+          if (!current.options.openOnSmall) {
+            current.closezoom();
+            e.preventDefault();
+          }
 
           //Scroll functionality
           if (current.options.scroll) current.eventscroll(source);
@@ -908,6 +915,7 @@ if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
     lensShape: 'box', //'box', 'circle'
     lensCollision: true,
     lensReverse: false,
+    openOnSmall: true,
     zoomWidth: 'auto',
     zoomHeight: 'auto',
     sourceClass: 'xzoom-source',
