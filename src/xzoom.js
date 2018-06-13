@@ -1,5 +1,5 @@
 /*!-----------------------------------------------------
- * xZoom v1.0.11
+ * xZoom v1.0.12
  * (c) 2013 by Azat Ahmedov & Elman Guseynov
  * https://github.com/payalord
  * https://dribbble.com/elmanvebs
@@ -551,9 +551,13 @@ function detect_old_ie() {
         imgObj.xon('load', function(e) {
           loading.remove();
 
-          if (!current.options.openOnSmall) {
+          imgObjwidth = imgObj.width();
+          imgObjheight = imgObj.height();
+
+          if (!current.options.openOnSmall && (imgObjwidth < mw || imgObjheight < mh)) {
             current.closezoom();
             e.preventDefault();
+            return false;
           }
 
           //Scroll functionality
@@ -582,9 +586,6 @@ function detect_old_ie() {
           if (current.options.title && title != '') {
             if (current.options.fadeIn) caption_container.fadeTo(300,1); else caption_container.css({opacity: 1});
           }
-
-          imgObjwidth = imgObj.width();
-          imgObjheight = imgObj.height();
 
           if (current.options.adaptive) {
           //Images corrections for adaptive
