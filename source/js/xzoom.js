@@ -1,5 +1,5 @@
 /*!-----------------------------------------------------
- * xZoom v1.0.12
+ * xZoom v1.0.13
  * (c) 2013 by Azat Ahmedov & Elman Guseynov
  * https://github.com/payalord
  * https://dribbble.com/elmanvebs
@@ -188,15 +188,18 @@ function detect_old_ie() {
       if (scale < -1) scale = -1;
       if (scale > 1) scale = 1;
 
+      var cc, iw, ih;
+
       if (c1 < c2) {
-        var cc = c1 - (c1 - 1) * scale;
-        var iw = mw * cc;
-        var ih = iw / iwh;
+        cc = c1 - (c1 - 1) * scale;
+        iw = mw * cc;
+        ih = iw / iwh;
       } else {
-        var cc = c2 - (c2 - 1) * scale;
-        var ih = mh * cc;
-        var iw = ih * iwh;
+        cc = c2 - (c2 - 1) * scale;
+        ih = mh * cc;
+        iw = ih * iwh;
       }
+
       if (flag) {
         //If smoothMove
         u = x;
@@ -551,9 +554,6 @@ function detect_old_ie() {
         imgObj.xon('load', function(e) {
           loading.remove();
 
-          imgObjwidth = imgObj.width();
-          imgObjheight = imgObj.height();
-
           if (!current.options.openOnSmall && (imgObjwidth < mw || imgObjheight < mh)) {
             current.closezoom();
             e.preventDefault();
@@ -587,6 +587,9 @@ function detect_old_ie() {
             if (current.options.fadeIn) caption_container.fadeTo(300,1); else caption_container.css({opacity: 1});
           }
 
+          imgObjwidth = imgObj.width();
+          imgObjheight = imgObj.height();
+
           if (current.options.adaptive) {
           //Images corrections for adaptive
             if (sw<osw || sh<osh) {
@@ -607,6 +610,7 @@ function detect_old_ie() {
           iwh = imgObjwidth / imgObjheight;
           c1 = imgObjwidth / mw;
           c2 = imgObjheight / mh;
+
           //outerHeight and outerWidth work wrong sometimes, especially when we use init() function
           //ltc = lens.outerHeight() / 2;
           //llc = lens.outerWidth() / 2;
