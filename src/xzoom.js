@@ -1,5 +1,5 @@
 /*!-----------------------------------------------------
- * xZoom v1.0.13
+ * xZoom v1.0.14
  * (c) 2013 by Azat Ahmedov & Elman Guseynov
  * https://github.com/payalord
  * https://dribbble.com/elmanvebs
@@ -554,7 +554,7 @@ function detect_old_ie() {
         imgObj.xon('load', function(e) {
           loading.remove();
 
-          if (!current.options.openOnSmall && (imgObjwidth < mw || imgObjheight < mh)) {
+          if (!current.options.openOnSmall && (imgObj.width() < mw || imgObj.height() < mh)) {
             current.closezoom();
             e.preventDefault();
             return false;
